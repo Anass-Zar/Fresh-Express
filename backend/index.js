@@ -4,6 +4,8 @@ import dotenv from "dotenv";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import adminRouter from "./routes/admin_route.js";
+import productsRouter from "./routes/products_route.js";
+import requestsRouter from "./routes/requests_route.js";
 
 dotenv.config();
 
@@ -22,6 +24,8 @@ mongoose
   );
 
 app.use("/api/admin", adminRouter);
+app.use("/api/products", productsRouter);
+app.use("/api/requests", requestsRouter);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

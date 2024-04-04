@@ -28,11 +28,11 @@ function App() {
         <Route path="/admin" element={<Login />} />
         <Route element={<Private />} >
           <Route path="/admin/requests" element={<Requests />} />
-          <Route path="/admin/request" element={<Request />} />
+          <Route path="/admin/request/:request" element={<Request />} />
           <Route element={<All_Access />}>
             <Route path="/admin/list_products" element={<List_Products />} />
             <Route path="/admin/add_product" element={<Add_Products />} />
-            <Route path="/admin/update_product" element={<Update_Products />} />
+            <Route path="/admin/update_product/:product" element={<Update_Products />} />
           </Route>
         </Route>
       </Routes>
