@@ -3,57 +3,65 @@ import { Link } from 'react-router-dom';
 import Fresh_Express from "../images/express.png"
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    setShowMenu(!showMenu);
   };
 
   return (
     <div>
-      <nav>
-        <div className="flex justify-between py-3 md:py-4 px-4 md:px-8">
-          <Link to="/">
-            <div className='flex items-center gap-2 md:gap-4'>
-              <img className="w-10 md:w-12" src={Fresh_Express} alt="logo" />
-              <h1 className='text-lg md:text-2xl font-bold'>Fresh Express</h1>
-            </div>
-          </Link>
-          <div className="flex items-center">
-            <span className='text-xs md:text-sm'>Francais | English</span>
+      <nav className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
+        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+          <a href="https://flowbite.com/" className="flex items-center space-x-3 rtl:space-x-reverse">
+            <img className="w-10 md:w-12" src={Fresh_Express} alt="logo" />
+            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Fresh Express</span>
+          </a>
+
+          <div className="flex justify-center w-full md:hidden">
+            <button onClick={toggleMenu} type="button" className="text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:text-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
+              <span className="sr-only">Open main menu</span>
+              <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 6H20M4 12H20M4 18H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
           </div>
-        </div>
-        <div className="md:px-8 items-center justify-between text-white bg-green-600 md:flex">
-          <div className="md:hidden">
-            <div className="flex items-center justify-between py-3 px-4 font-medium gap-2">
-              <div className='cursor-pointer flex items-center gap-2' onClick={toggleMenu}>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" className='w-5 h-5'>
-                  <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z" fill='#ffffff'/>
-                </svg>             
-                <div>Menu</div>
-              </div>
-              <Link to="/card" className=''>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" className='w-5 h-5'>
-                  <path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" fill='#ffffff'/>
-                </svg>
+
+          <div className={`items-center justify-between w-full md:flex md:w-auto ${showMenu ? 'flex' : 'hidden'}`} id="navbar-sticky">
+            <ul className="flex w-full flex-col md:flex-row text-center	 md:items-center md:justify-center md:space-x-8 md:mt-0">
+              <Link to="/">
+                <li>
+                  <a href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" aria-current="page">Home</a>
+                </li>
               </Link>
-            </div>
-          </div>
-          <div className={`md:flex md:items-center md:justify-end ${isMenuOpen ? 'block' : 'hidden'}`}>
-            <ul className="items-center md:divide-green-400 md:divide-x pb-2 md:pb-0 md:flex text-sm md:text-md font-semibold">
-              <Link to='/'><li className="py-3 md:py-4 px-4 bg-green-600 md:bg-transparent hover:bg-green-400">Home</li></Link>
-              <Link to='/products'><li className="py-3 md:py-4 px-4 bg-green-600 md:bg-transparent hover:bg-green-400">Products</li></Link>
-              <Link to='/about_us'><li className="py-3 md:py-4 px-4 bg-green-600 md:bg-transparent hover:bg-green-400">About Us</li></Link>
-              <Link to='/contact_us'><li className="py-3 md:py-4 px-4 bg-green-600 md:bg-transparent hover:bg-green-400">Contact Us</li></Link>
+
+              <Link to="/products">
+                <li>
+                  <a href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Products</a>
+                </li>
+              </Link>
+
+              <Link to="/about_us">
+              <li>
+                <a href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
+              </li>
+              </Link>
+
+              <Link to="/contact_us">
+              <li>
+                <a href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
+              </li>
+              </Link>
+
             </ul>
           </div>
-          <Link to="/card" className="hidden md:block pr-2">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" className='w-6 h-6'>
-              <path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" fill='#ffffff'/>
-            </svg>
-          </Link>
+
+          <div className="flex justify-end items-end md:order-3">
+            <span className='text-xs md:text-sm'>Français | English</span>
+          </div>
         </div>
       </nav>
+
     </div>
   )
 }
