@@ -11,11 +11,11 @@ const Navbar = () => {
 
   return (
     <div>
-      <nav className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
+      <nav className="bg-white fixed w-full z-20 top-0 start-0 border-b border-gray-200">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <a href="https://flowbite.com/" className="flex items-center space-x-3 rtl:space-x-reverse">
             <img className="w-10 md:w-12" src={Fresh_Express} alt="logo" />
-            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Fresh Express</span>
+            <span className="self-center text-2xl font-semibold whitespace-nowrap">Fresh Express</span>
           </a>
 
           <div className="flex justify-center w-full md:hidden">
@@ -31,13 +31,13 @@ const Navbar = () => {
             <ul className="flex w-full flex-col md:flex-row text-center	 md:items-center md:justify-center md:space-x-8 md:mt-0">
               <Link to="/">
                 <li>
-                  <a href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" aria-current="page">Home</a>
+                  <a href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 " aria-current="page">Home</a>
                 </li>
               </Link>
 
               <Link to="/products">
                 <li>
-                  <a href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Products</a>
+                  <a href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">Products</a>
                 </li>
               </Link>
 
