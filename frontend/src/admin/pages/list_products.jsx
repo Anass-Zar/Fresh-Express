@@ -27,6 +27,7 @@ const List_Product = () => {
         <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6'>
           {products.map((product) => (
             <div key={product.id} className='border border-gray-500 rounded-lg p-4 '>
+              <img src={product.image} alt="Image" className='rounded-lg' />
               <h1 className='mb-2 text-lg font-semibold'>Title : {product.title}</h1>
               <p className='mb-2'>Category : {product.category}</p>
               <p className='mb-3 text-sm line-clamp-2'>{product.description}</p>
