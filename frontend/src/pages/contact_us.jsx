@@ -1,74 +1,48 @@
-import Footer from "../components/footer"
-import Navbar from "../components/navbar"
+import Footer from '../components/footer';
+import Navbar from '../components/navbar';
 
 const Contact_Us = () => {
   return (
     <div>
       <Navbar />
-        <div class="container-fluid page-header py-5">
-            <h1 class="text-center text-white display-6">Contact</h1>
-            <ol class="breadcrumb justify-content-center mb-0">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                <li class="breadcrumb-item active text-white">Contact</li>
-            </ol>
+        <div className="bg-white pt-20 relative mx-auto max-w-5xl text-center">
+          <span className="text-black my-3 flex items-center justify-center font-medium uppercase tracking-wider">
+            Contact Us
+          </span>
+          <h2
+            className="block w-full bg-gradient-to-b from-black to-gray-400 bg-clip-text font-bold text-transparent text-3xl sm:text-4xl">
+            Get in touch
+          </h2>
         </div>
 
+        <div className="bg-white py-5">
+          <div className="container mx-auto px-4">
+            <div className="bg-white rounded-lg p-5">
 
-        <div class="container-fluid contact py-5">
-            <div class="container py-5">
-                <div class="p-5 bg-light rounded">
-                    <div class="row g-4">
-                        <div class="col-12">
-                            <div class="text-center mx-auto" style="max-width: 700px;">
-                                <h1 class="text-primary">Get in touch</h1>
-                                <p class="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="h-100 rounded">
-                                <iframe class="rounded w-100" 
-                                style="height: 400px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387191.33750346623!2d-73.97968099999999!3d40.6974881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1694259649153!5m2!1sen!2sbd" 
-                                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                            </div>
-                        </div>
-                        <div class="col-lg-7">
-                            <form action="" class=""/>
-                                <input type="text" class="w-100 form-control border-0 py-3 mb-4" placeholder="Your Name"/>
-                                <input type="email" class="w-100 form-control border-0 py-3 mb-4" placeholder="Enter Your Email"/>
-                                <textarea class="w-100 form-control border-0 mb-4" rows="5" cols="10" placeholder="Your Message"></textarea>
-                                <button class="w-100 btn form-control border-secondary py-3 bg-white text-primary " type="submit">Submit</button>
-                        </div>
-                        <div class="col-lg-5">
-                            <div class="d-flex p-4 rounded mb-4 bg-white">
-                                <i class="fas fa-map-marker-alt fa-2x text-primary me-4"></i>
-                                <div>
-                                    <h4>Address</h4>
-                                    <p class="mb-2">123 Street New York.USA</p>
-                                </div>
-                            </div>
-                            <div class="d-flex p-4 rounded mb-4 bg-white">
-                                <i class="fas fa-envelope fa-2x text-primary me-4"></i>
-                                <div>
-                                    <h4>Mail Us</h4>
-                                    <p class="mb-2">info@example.com</p>
-                                </div>
-                            </div>
-                            <div class="d-flex p-4 rounded bg-white">
-                                <i class="fa fa-phone-alt fa-2x text-primary me-4"></i>
-                                <div>
-                                    <h4>Telephone</h4>
-                                    <p class="mb-2">(+012) 3456 7890</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <form action="" className="p-4 rounded border">
+                  <input type="text" className="w-full form-input border-[gray] border-solid border-[1px] p-4 rounded-md py-3 mb-4" placeholder="Your Name" />
+                  <input type="email" className="w-full form-input border-[gray] border-solid border-[1px] p-4 rounded-md py-3 mb-4 " placeholder="Enter Your Email" />
+                  <textarea className="w-full form-textarea border-[gray] border-solid border-[1px] p-4 rounded-md mb-4" rows="5" placeholder="Your Message"></textarea>
+                  <button className="w-full btn border border-gray-300 rounded-md py-3 bg-white text-primary hover:bg-green-400 font-bold" type="submit">Submit</button>
+                </form>
+                <div>
+                  <div className="h-96 rounded overflow-hidden">
+                    <iframe className="w-full h-full" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15445.871622058152!2d-9.564068398613035!3d30.431090747727794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdb3b616b7f0c3d1%3A0x8eb5ace4ec157f19!2sCit%C3%A9%20Al%20Mohammadi%2C%20Agadir%2080000!5e0!3m2!1sen!2sma!4v1712239891910!5m2!1sen!2sma" loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Google Map"></iframe>
+                  </div>
                 </div>
+
+              </div>
             </div>
+          </div>
         </div>
+
+        <hr/>
+
+
       <Footer />
     </div>
-  )
+  );
 }
 
-export default Contact_Us
+export default Contact_Us;
