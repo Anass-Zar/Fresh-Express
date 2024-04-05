@@ -71,7 +71,7 @@ const Footer = () => {
           </p>
         </div>
       </div>
-      <div className="px-4 md:px-8 flex flex-col-reverse justify-between py-6 md:py-8 border-t lg:flex-row bg-green-600">
+      <div className="px-4 md:px-8 flex flex-col-reverse justify-between py-6 md:py-8 border-t lg:flex-row bg-green-500">
         <p className="text-sm text-white">
           © Copyright 2024. Created by 
           <a href="https://www.linkedin.com/in/anass-zarioh-884114298/" className="hover:text-black"> Anass Zarioh .</a>

@@ -21,9 +21,9 @@ const Contact_Us = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <form action="" className="p-4 rounded border">
-                  <input type="text" className="w-full form-input border-[gray] border-solid border-[1px] p-4 rounded-md py-3 mb-4" placeholder="Your Name" />
-                  <input type="email" className="w-full form-input border-[gray] border-solid border-[1px] p-4 rounded-md py-3 mb-4 " placeholder="Enter Your Email" />
-                  <textarea className="w-full form-textarea border-[gray] border-solid border-[1px] p-4 rounded-md mb-4" rows="5" placeholder="Your Message"></textarea>
+                  <input type="text" className="w-full form-input border-[gray] border-solid border-[1px] p-4 rounded-md py-3 mb-4 focus:border-green-500 focus:outline-none" placeholder="Your Name" />
+                  <input type="email" className="w-full form-input border-[gray] border-solid border-[1px] p-4 rounded-md py-3 mb-4 focus:border-green-500 focus:outline-none " placeholder="Enter Your Email" />
+                  <textarea className="w-full form-textarea border-[gray] border-solid border-[1px] p-4 rounded-md mb-4 focus:border-green-500 focus:outline-none" rows="5" placeholder="Your Message"></textarea>
                   <button className="w-full btn border border-gray-300 rounded-md py-3 bg-white text-primary hover:bg-green-400 font-bold" type="submit">Submit</button>
                 </form>
                 <div>
