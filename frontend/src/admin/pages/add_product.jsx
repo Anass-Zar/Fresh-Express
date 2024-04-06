@@ -8,37 +8,14 @@ import { useNavigate } from 'react-router-dom';
 const Add_Product = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({});
-  const [image, setImage] = useState('');
-
-  const handleUpload = () => {
-    if (!formData.imageUrl) {
-      const promises = [];
-      promises.push(storeImage(image));
-      Promise.all(promises)
-        .then((urls) => {
-          setFormData((prevData) => ({
-            ...prevData,
-            imageUrl: urls[0],
-            image: urls[0], // Stocking urls[0] in formData.image
-          }));
-          toast.success('Image uploaded successfully');
-          console.log(urls[0]);
-        })
-        .catch((err) => {
-          console.log(err);
-          toast.error('Image upload failed (2 MB max per image)');
-        });
-    } else {
-      toast.error('You can only upload one image per listing');
-    }
-  };  
 
   const storeImage = async (file) => {
+    const storage = getStorage(app);
+    const fileName = new Date().getTime() + file.name;
+    const storageRef = ref(storage, fileName);
+    const uploadTask = uploadBytesResumable(storageRef, file);
+
     return new Promise((resolve, reject) => {
-      const storage = getStorage(app);
-      const fileName = new Date().getTime() + file.name;
-      const storageRef = ref(storage, fileName);
-      const uploadTask = uploadBytesResumable(storageRef, file);
       uploadTask.on(
         'state_changed',
         (snapshot) => {
@@ -60,40 +37,38 @@ const Add_Product = () => {
   const handleChange = (e) => {
     if (e.target.id === 'image') {
       const file = e.target.files[0];
-      setImage(file);
-      // handleUpload();
+      storeImage(file).then((url) => {
+        setFormData({ ...formData, image: url });
+      }).catch((error) => {
+        console.error(error);
+        toast.error('Failed to upload image');
+      });
+    } else {
+      setFormData({ ...formData, [e.target.id]: e.target.value });
     }
-    setFormData({ ...formData, [e.target.id]: e.target.value });
   };
+  
+  
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  if (image) {
-    handleUpload();
-  } else {
-    toast.error('You must select an image to upload');
-  }
-  try {
-    if (formData.imageUrl) {
-      const res = await fetch('http://localhost:3000/api/products/add_product', {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await fetch(`http://localhost:3000/api/products/add_product`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          ...formData,
+          ...formData
         }),
       });
       const data = await res.json();
       console.log(data);
       navigate('/admin/list_products');
-    } else {
-      toast.error('Please upload an image');
+    } catch (error) {
+      console.error(error.message);
     }
-  } catch (error) {
-    console.log(error.message);
-  }
-};
+  };
 
   return (
     <div className="flex">
@@ -106,13 +81,13 @@ const handleSubmit = async (e) => {
             <div className="md:flex mb-6">
               <div className="md:w-1/3 pt-1">
                 <label className="block text-gray-600 font-bold md:text-left mb-3 md:mb-0 pr-4 text-lg" htmlFor="my-textarea">
-                  Description
+                  Product Image : 
                 </label>
               </div>
               <div className="md:w-2/3">
                 <label htmlFor="image" className="flex flex-col items-center justify-center w-full h-96 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-white hover:bg-gray-50">
-                  {image ? (
-                    <img src={URL.createObjectURL(image)} alt="Selected" className="h-full object-cover rounded-lg" />
+                  {formData.image ? (
+                    <img src={formData.image} alt="Selected" className="h-full object-cover rounded-lg" />
                   ) : (
                     <>
                       <div className="flex flex-col items-center justify-center pt-5 pb-6">
@@ -131,7 +106,7 @@ const handleSubmit = async (e) => {
             <div className="md:flex mb-6">
               <div className="md:w-1/3 flex items-center">
                 <label className="block text-gray-600 font-bold md:text-left mb-3 md:mb-0 pr-4 text-lg" htmlFor="my-textfield">
-                  Title
+                  Product Name : 
                 </label>
               </div>
               <div className="md:w-2/3">
@@ -141,12 +116,12 @@ const handleSubmit = async (e) => {
             <div className="md:flex mb-6">
               <div className="md:w-1/3 flex items-center">
                 <label className="block text-gray-600 font-bold md:text-left mb-3 md:mb-0 pr-4 text-lg" htmlFor="my-select">
-                  Category
+                  Product Category :
                 </label>
               </div>
               <div className="md:w-2/3">
                 <select onChange={handleChange} className="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-lg focus:outline-none focus:border-green-500 focus:bg-white" id="category">
-                  <option value=""></option>
+                  <option value="">---</option>
                   <option value="Fruits">Fruits</option>
                   <option value="Vegetables">Vegetables</option>
                 </select>
@@ -155,7 +130,7 @@ const handleSubmit = async (e) => {
             <div className="md:flex mb-6">
               <div className="md:w-1/3 pt-1">
                 <label className="block text-gray-600 font-bold md:text-left mb-3 md:mb-0 pr-4 text-lg" htmlFor="my-textarea">
-                  Description
+                  Product Description :
                 </label>
               </div>
               <div className="md:w-2/3">

@@ -24,7 +24,7 @@ const RequestsSchema = new Schema({
   },
   status: {
     type: String,
-    default: "in progress"
+    default: "waiting"
   },
   order: {
     type: ObjectId

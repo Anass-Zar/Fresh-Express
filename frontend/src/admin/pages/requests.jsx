@@ -4,6 +4,7 @@ import { Link } from "react-router-dom"
 
 const Requests = () => {
   const [requests, setRequests] = useState([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     const fetchRequests = async () => {
@@ -22,7 +23,10 @@ const Requests = () => {
     <div className="flex">
       <Sidebar />
       <div className="ml-52 w-full py-6 px-6">
-        <h1 className='text-lg font-bold mb-8'>Requests :</h1>
+        <div className='flex justify-between mb-8'>
+          <h1 className='text-lg font-bold'>Requests :</h1>
+          <input type="text" onChange={ (e) => setSearch(e.target.value) } className="h-8 w-72 px-3 text-sm placeholder:text-gray-400 text-gray-700 bg-white border-2 border-gray-400 rounded-lg focus:outline-none focus:border-green-500 focus:bg-white" placeholder="Search..." />
+        </div>
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
           <table className="w-full text-left text-gray-500">
             <thead className="text-md text-gray-700 bg-gray-200">
@@ -42,11 +46,13 @@ const Requests = () => {
                 </tr>
             </thead>
             <tbody className='text-sm'>
-              {requests.map((request, index) => (
+              {requests
+              .filter((request) => request.email.toLowerCase().includes(search.toLowerCase()))
+              .map((request, index) => (
                 <tr key={index} className="bg-gray-50 border-b hover:bg-gray-100 cursor-pointer hover:border hover:border-gray-300">
                     <td className="px-6 py-4 border-b border-blue-gray-50">
                       <div className="w-max">
-                        <div className={`relative grid items-center font-sans font-bold uppercase whitespace-nowrap select-none py-1 px-2 text-xs rounded-md ${request.status === 'in progress' ? 'bg-orange-500/20 text-orange-900' : request.status === 'accepted' ? 'bg-green-500/20 text-green-900' : request.status === 'refused' ? 'bg-red-500/20 text-red-900' : ''}`}>
+                        <div className={`relative grid items-center font-sans font-bold uppercase whitespace-nowrap select-none py-1 px-2 text-xs rounded-md ${request.status === 'waiting' ? 'bg-orange-500/20 text-orange-900' : request.status === 'accepted' ? 'bg-green-500/20 text-green-900' : request.status === 'refused' ? 'bg-red-500/20 text-red-900' : ''}`}>
                           <span>{request.status}</span>
                         </div>
                       </div>
