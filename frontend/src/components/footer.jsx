@@ -6,7 +6,7 @@ const Footer = () => {
 
   return (
     <div className="mx-auto w-full">
-      <div className="pt-10 px-4 md:px-8 grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="pt-10 px-6 md:px-10 grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
         <div className="sm:col-span-2">
             <Link to="/"className='flex items-center gap-2 md:gap-4 w-44 md:w-56'>
                 <img className="w-10 md:w-12 " src={Fresh_Express} alt="logo" />
@@ -71,7 +71,7 @@ const Footer = () => {
           </p>
         </div>
       </div>
-      <div className="px-4 md:px-8 flex flex-col-reverse justify-between py-6 md:py-8 border-t lg:flex-row bg-green-600">
+      <div className="px-6 md:px-10 flex flex-col-reverse justify-between py-6 md:py-8 border-t lg:flex-row bg-green-600">
         <p className="text-sm text-white">
           © Copyright 2024. Created by 
           <a href="https://www.linkedin.com/in/anass-zarioh-884114298/" className="hover:text-black"> Anass Zarioh .</a>

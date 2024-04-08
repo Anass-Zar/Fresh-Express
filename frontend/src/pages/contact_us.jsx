@@ -5,7 +5,7 @@ const Contact_Us = () => {
   return (
     <div>
       <Navbar />
-        <div className="bg-white pt-20 relative mx-auto max-w-5xl text-center">
+        <div className="bg-white pt-20 mx-auto max-w-5xl text-center">
           <span className="text-black my-3 flex items-center justify-center font-medium uppercase tracking-wider">
             Contact Us
           </span>

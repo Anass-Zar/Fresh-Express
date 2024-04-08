@@ -8,9 +8,9 @@ const About_US = () => {
 
     <div>
 
-  <section className="relative block px-6 py-10 md:py-20 md:px-10  border-t border-b border-neutral-900 ">
+  <section className="block px-6 py-10 md:py-20 md:px-10  border-t border-b border-neutral-900 ">
 
-    <div className="relative mx-auto max-w-5xl text-center">
+    <div className="mx-auto max-w-5xl text-center">
       <span className="text-black my-3 flex items-center justify-center font-medium uppercase tracking-wider">
         About Us
       </span>
@@ -25,7 +25,7 @@ const About_US = () => {
       </p>
     </div>
 
-    <div className="relative mx-auto max-w-7xl z-10 grid grid-cols-1 gap-10 pt-14 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="mx-auto max-w-7xl z-10 grid grid-cols-1 gap-10 pt-14 sm:grid-cols-2 lg:grid-cols-3">
       <div className="rounded-md border border-neutral-800 p-8 text-center shadow">
         <div className="bg-green-500 button-text mx-auto flex h-12 w-12 items-center justify-center rounded-md border">
         <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-bolt" width="24"
