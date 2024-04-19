@@ -6,7 +6,7 @@ const Footer = () => {
 
   return (
     <div className="mx-auto w-full">
-      <div className="pt-10 px-6 md:px-10 grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="pt-10 px-6 md:px-10 grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-5">
         <div className="sm:col-span-2">
             <Link to="/"className='flex items-center gap-2 md:gap-4 w-44 md:w-56'>
                 <img className="w-10 md:w-12 " src={Fresh_Express} alt="logo" />
@@ -40,7 +40,13 @@ const Footer = () => {
             </a>
           </div>
         </div>
-        <div>
+        <div className="space-y-2 text-sm">
+          <p className="text-lg font-bold tracking-wide text-gray-900">Languge :</p>
+          <p className="mr-1 text-gray-800">عربية</p>
+          <p className="mr-1 text-gray-800">English</p>
+          <p className="mr-1 text-gray-800">Francais</p>
+        </div>
+        <div className="text-sm">
           <span className="text-lg font-bold tracking-wide text-gray-900">Social</span>
           <div className="flex items-center mt-1 space-x-3">
             <a href="/" className="text-gray-500 hover:text-cyan-500">
@@ -71,11 +77,8 @@ const Footer = () => {
           </p>
         </div>
       </div>
-<<<<<<< HEAD
       <div className="px-6 md:px-10 flex flex-col-reverse justify-between py-6 md:py-8 border-t lg:flex-row bg-green-600">
-=======
-      <div className="px-4 md:px-8 flex flex-col-reverse justify-between py-6 md:py-8 border-t lg:flex-row bg-green-500">
->>>>>>> mouad
+
         <p className="text-sm text-white">
           © Copyright 2024. Created by 
           <a href="https://www.linkedin.com/in/anass-zarioh-884114298/" className="hover:text-black"> Anass Zarioh .</a>

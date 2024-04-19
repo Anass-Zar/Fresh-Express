@@ -64,17 +64,15 @@ const List_Product = () => {
             .map((product) => (
               <div key={product._id} className='border border-gray-500 rounded-lg p-4 '>
                 <img src={product.image} alt="Image" className='rounded-lg' />
-                <h1 className='mb-1 text-xl font-semibold'>{product.title}</h1>
+                <Link to={`/admin/product_info/${product._id}`} className='mb-1 text-xl font-semibold'>{product.title}</Link>
                 <div className='mb-2 flex justify-between'>
                   <p className='text-lg'>{product.category}</p>
                   <p className={`text-lg font-semibold ${product.stock ? 'text-green-500' : 'text-red-500'}`}>{product.stock ? 'In stock' : 'Out of stock'}</p>
                 </div>
                 <div className='w-full flex justify-between gap-4'>
-                  <button type="button" className='w-1/2 bg-orange-600 hover:bg-orange-500 text-white font-bold py-2 px-4 rounded-lg'>
-                    <Link to={`/admin/update_product/${product._id}`}>
-                      Update
-                    </Link>
-                  </button>
+                  <Link to={`/admin/update_product/${product._id}`} className='w-1/2 text-center bg-orange-600 hover:bg-orange-500 text-white font-bold py-2 px-4 rounded-lg'>
+                    Update
+                  </Link>
                   <button type="button" onClick={() => handleGiveId(product._id)} className='w-1/2 bg-red-600 hover:bg-red-500 text-white font-bold py-2 px-4 rounded-lg'>
                     Delete
                   </button>
@@ -100,7 +98,7 @@ const List_Product = () => {
             <button onClick={() => handleDeleteProduct(id)} className="text-white bg-red-600 hover:bg-red-500 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-base inline-flex items-center px-3 py-2.5 text-center mr-2">
               Yes, I&apos;m sure
             </button>
-            <button onClick={() => closeModal('modelConfirm')} className="text-gray-900 bg-white hover:bg-gray-100 focus:ring-4 focus:ring-cyan-200 border border-gray-200 font-medium inline-flex items-center rounded-lg text-base px-3 py-2.5 text-center" data-modal-toggle="delete-user-modal">
+            <button onClick={() => closeModal('modelConfirm')} className="text-gray-900 bg-gray-200 hover:bg-gray-100 focus:ring-4 focus:ring-cyan-200 border border-gray-200 font-medium inline-flex items-center rounded-lg text-base px-3 py-2.5 text-center" data-modal-toggle="delete-user-modal">
               No, cancel
             </button>
           </div>

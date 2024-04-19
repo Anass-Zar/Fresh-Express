@@ -61,7 +61,8 @@ const Update_Product = () => {
         setLoading(false);
       }).catch((error) => {
         console.error(error);
-        toast.error('Failed to upload image');
+        toast.error('Image upload failed (2 MB max per image)');
+        setLoading(false);
       });
     } else {
       setFormData({ ...formData, [e.target.id]: e.target.value });
@@ -190,31 +191,21 @@ const Update_Product = () => {
 
             <div className="md:flex mb-6">
               <div className="md:w-1/3 flex items-center">
-                <label className="block text-gray-600 font-bold md:text-left mb-3 md:mb-0 pr-4 text-lg" htmlFor="category" >
+                <label className="block text-gray-600 font-bold md:text-left mb-3 md:mb-0 pr-4 text-lg" htmlFor="category">
                   Product Stock :
                 </label>
               </div>
               <div className="md:w-2/3">
                 <div className='flex gap-12'>
                   <div className='flex items-center'>
-                    <input 
-                      type="radio" 
-                      name="stock" 
-                      id="inStock" 
-                      className="w-4 h-4" 
-                      checked={formData.stock === true} 
+                    <input
+                      type="checkbox"
+                      checked={formData.stock || false}
+                      onChange={(e) => setFormData({ ...formData, stock: e.target.checked })}
+                      id="inStock"
+                      className="w-4 h-4"
                     />
-                    <label htmlFor="inStock" className='text-lg ml-2 text-gray-700'>In stock</label>
-                  </div>
-                  <div className='flex items-center'>
-                    <input 
-                      type="radio" 
-                      name="stock" 
-                      id="outOfStock" 
-                      className='w-4 h-4' 
-                      checked={formData.stock === false} 
-                    />
-                    <label htmlFor="outOfStock" className='text-lg ml-2 text-gray-700'>Out of stock</label>
+                    <label htmlFor="inStock" className='text-lg ml-2 text-gray-700'>In Stock</label>
                   </div>
                 </div>
               </div>

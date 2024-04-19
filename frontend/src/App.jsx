@@ -13,6 +13,7 @@ import Request from "./admin/pages/request"
 import List_Products from "./admin/pages/list_products"
 import Add_Products from "./admin/pages/add_product"
 import Update_Products from "./admin/pages/update_product"
+import Product_info from "./admin/pages/product_info"
 
 function App() {
 
@@ -21,7 +22,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
-        <Route path="/product_details" element={<Product_Details />} />
+        <Route path="/product_details/:product" element={<Product_Details />} />
         <Route path="/card" element={<Card />} />
         <Route path="/contact_us" element={<Contact_Us />} />
         <Route path="/about_us" element={<About_Us />} />
@@ -31,6 +32,7 @@ function App() {
           <Route path="/admin/request/:request" element={<Request />} />
           <Route element={<All_Access />}>
             <Route path="/admin/list_products" element={<List_Products />} />
+            <Route path="/admin/product_info/:product" element={<Product_info />} />
             <Route path="/admin/add_product" element={<Add_Products />} />
             <Route path="/admin/update_product/:product" element={<Update_Products />} />
           </Route>

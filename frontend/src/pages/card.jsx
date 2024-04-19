@@ -1,149 +1,113 @@
+import { Link } from "react-router-dom";
 import Footer from "../components/footer";
 import Navbar from "../components/navbar";
+import { useState, useEffect } from "react";
+import vfImage from "../images/vf.jpg";
 
 const Card = () => {
+  const [formData, setFormData] = useState({});
+  const [countries, setCountries] = useState([]);
+
+  useEffect(() => {
+    fetch('https://restcountries.com/v3.1/all')
+      .then(response => response.json())
+      .then(data => {
+        // Sort the countries by name
+        const sortedCountries = data.sort((a, b) => a.name.common.localeCompare(b.name.common));
+        setCountries(sortedCountries);
+      })
+      .catch(error => {
+        console.error('Error fetching countries:', error);
+      });
+  }, []);
+    
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch("http://localhost:3000/api/requests/add_requests", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      if (response.ok) {
+        console.log("Request sent successfully");
+      } else {
+        console.error("Failed to send request");
+      }
+    } catch (error) {
+      console.error("Error sending request:", error);
+    }
+  };
+
   return (
     <div>
       <Navbar />
-      {/* <div className="mt-28 bg-gray-100 flex items-center justify-center">
-        <div className="container max-w-screen-lg mx-auto">
-          <div className="bg-green-400 rounded shadow-lg p-4 px-4 md:p-8 mb-6">
-            <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
-              <div className="text-gray-600">
-                <p className="font-medium text-lg">Personal Details</p>
-                <p>Please fill out all the fields.</p>
-              </div>
-
-              <div className="lg:col-span-2">
-                <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
-                  <div className="md:col-span-5">
-                    <label htmlFor="full_name">Full Name</label>
-                    <input type="text" name="full_name" id="full_name" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
-                  </div>
-
-                  <div className="md:col-span-5">
-                    <label htmlFor="email">Email Address</label>
-                    <input type="text" name="email" id="email" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="email@domain.com" />
-                  </div>
-
-                  <div className="md:col-span-3">
-                    <label htmlFor="address">Address / Street</label>
-                    <input type="text" name="address" id="address" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
-                  </div>
-
-                  <div className="md:col-span-2">
-                    <label htmlFor="city">City</label>
-                    <input type="text" name="city" id="city" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
-                  </div>
-
-                  <div className="md:col-span-2">
-                    <label htmlFor="country">Country / region</label>
-                    <div className="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
-                      <input name="country" id="country" placeholder="Country" className="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" value="" />
-                      <button tabIndex="-1" className="cursor-pointer outline-none focus:outline-none transition-all text-gray-300 hover:text-red-600">
-                        <svg className="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <line x1="18" y1="6" x2="6" y2="18"></line>
-                          <line x1="6" y1="6" x2="18" y2="18"></line>
-                        </svg>
-                      </button>
-                      <button tabIndex="-1" className="cursor-pointer outline-none focus:outline-none border-l border-gray-200 transition-all text-gray-300 hover:text-blue-600">
-                        <svg className="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
-                      </button>
-                    </div>
-                  </div>
-
-                  <div className="md:col-span-2">
-                    <label htmlFor="state">State / province</label>
-                    <div className="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
-                      <input name="state" id="state" placeholder="State" className="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" value="" />
-                      <button tabIndex="-1" className="cursor-pointer outline-none focus:outline-none transition-all text-gray-300 hover:text-red-600">
-                        <svg className="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <line x1="18" y1="6" x2="6" y2="18"></line>
-                          <line x1="6" y1="6" x2="18" y2="18"></line>
-                        </svg>
-                      </button>
-                      <button tabIndex="-1" className="cursor-pointer outline-none focus:outline-none border-l border-gray-200 transition-all text-gray-300 hover:text-blue-600">
-                        <svg className="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
-                      </button>
-                    </div>
-                  </div>
-
-                  <div className="md:col-span-1">
-                    <label htmlFor="zipcode">Zipcode</label>
-                    <input type="text" name="zipcode" id="zipcode" className="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder="" value="" />
-                  </div>
-
-                  <div className="md:col-span-5">
-                    <div className="inline-flex items-center">
-                      <input type="checkbox" name="billing_same" id="billing_same" className="form-checkbox" />
-                      <label htmlFor="billing_same" className="ml-2">My billing address is different than above.</label>
-                    </div>
-                  </div>
-
-                  <div className="md:col-span-2">
-                    <label htmlFor="soda">How many soda pops?</label>
-                    <div className="h-10 w-28 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
-                      <button tabIndex="-1" className="cursor-pointer outline-none focus:outline-none border-r border-gray-200 transition-all text-gray-500 hover:text-blue-600">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mx-2" viewBox="0 0 20 20" fill="currentColor">
-                          <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-                        </svg>
-                      </button>
-                      <input name="soda" id="soda" placeholder="0" className="px-2 text-center appearance-none outline-none text-gray-800 w-full bg-transparent" value="0" />
-                      <button tabIndex="-1" className="cursor-pointer outline-none focus:outline-none border-l border-gray-200 transition-all text-gray-500 hover:text-blue-600">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mx-2 fill-current" viewBox="0 0 20 20" fill="currentColor">
-                          <path fillRule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clipRule="evenodd" />
-                        </svg>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+      <div className="w-full h-40 md:h-52 text-center grid items-center content-center font-[Dosis] uppercase" style={{ backgroundImage: `url(${vfImage})`, backgroundSize: "cover", backgroundPosition: "center" }}>
+        <div className="w-full h-40 md:h-52 py-16 text-center grid items-center content-center bg-[#16A34Add]">
+          <h1 className="text-3xl md:text-5xl font-bold text-gray-50 text-center">CHECKOUT</h1>
+          <h1 className="md:text-lg font-semibold text-gray-50 mt-3 flex justify-center gap-2">
+            <Link to="/" className="hover:underline">
+              Home
+            </Link>
+            &gt;
+            <Link to="/checkout" className="hover:underline">
+              Checkout
+            </Link>
+          </h1>
         </div>
-      </div> */}
-      <div className="mt-28 mb-14">
-
-        <div className="flex flex-col md:flex-row gap-8 md:gap-4 py-4 px-6 md:px-12 lg:px-24">
+      </div>
+      <form onSubmit={handleSubmit} className="my-8">
+        <div className="mt-6 mb-10 flex flex-col md:flex-row gap-10 py-4 px-6 md:px-12 lg:px-24">
           <div className="md:w-1/2">
-            <h2 className="text-lg font-semibold mb-4">BILLING DETAILS</h2>
-            <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-4">
+            <h2 className="text-xl font-semibold mb-4">BILLING DETAILS</h2>
+            <div className="grid gap-x-6 gap-y-4 text-sm grid-cols-1 md:grid-cols-4">
               <div className="md:col-span-4">
-                <label htmlFor="full_name">Full Name</label>
-                <input type="text" name="full_name" id="full_name" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50 focus:outline-none focus:border-green-500 focus:bg-white"  />
+                <label htmlFor="fullName" className="font-semibold">Full Name</label>
+                <input type="text" name="fullName" id="fullName" onChange={handleChange} className="h-10 border mt-1 rounded px-3 w-full border-gray-300 bg-white focus:outline-none focus:border-green-500 focus:bg-white" placeholder="Full Name" />
               </div>
 
               <div className="md:col-span-4">
-                <label htmlFor="email">Email Address</label>
-                <input type="text" name="email" id="email" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50 focus:outline-none focus:border-green-500 focus:bg-white" value="" placeholder="email@domain.com" />
+                <label htmlFor="email" className="font-semibold">Email Address</label>
+                <input type="text" name="email" id="email" onChange={handleChange} className="h-10 border mt-1 rounded px-3 w-full border-gray-300 bg-white focus:outline-none focus:border-green-500 focus:bg-white" placeholder="email@domain.com" />
               </div>
 
               <div className="md:col-span-2">
-                <label htmlFor="address">Phone</label>
-                <input type="text" name="address" id="address" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50 focus:outline-none focus:border-green-500 focus:bg-white" value="" placeholder="" />
+                <label htmlFor="phone" className="font-semibold">Phone</label>
+                <input type="text" name="phone" id="phone" onChange={handleChange} className="h-10 border mt-1 rounded px-3 w-full border-gray-300 bg-white focus:outline-none focus:border-green-500 focus:bg-white" placeholder="Your Phone Number" />
               </div>
 
               <div className="md:col-span-2">
-                <label htmlFor="city">Country</label>
-                <input type="text" name="city" id="city" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50 focus:outline-none focus:border-green-500 focus:bg-white" value="" placeholder="" />
+                <label htmlFor="country" className="font-semibold">Country</label>
+                <select name="country" id="country" onChange={handleChange} className="h-10 border mt-1 rounded px-3 w-full border-gray-300 bg-white focus:outline-none focus:border-green-500 focus:bg-white">
+                  <option value=""></option>
+                  {countries.map(country => (
+                    <option className="bg-red-500" key={country.name.common} value={country.name.common}>
+                      {country.name.common}
+                    </option>
+                  ))}
+                </select>
               </div>
-
             </div>
           </div>
           <div className="md:w-1/2">
-            <h2 className="text-lg font-semibold mb-4">BILLING DETAILS</h2>
+            <h2 className="text-xl font-semibold mb-4">ADDITIONAL INFORMATION</h2>
             <div className="grid gap-4 gap-y-2 text-sm">
               <div className="">
-                <label htmlFor="city">City</label>
-                <textarea name="" id="" cols="30" rows="10"  className="h-10 border mt-1 rounded px-4 py-2.5 w-full bg-gray-50 focus:outline-none focus:border-green-500 focus:bg-white"></textarea>
+                <label htmlFor="message" className="font-semibold">Message</label>
+                <textarea name="message" id="message" onChange={handleChange} cols="30" rows="10"  className="h-[200px] border mt-1 rounded px-3 py-2.5 w-full border-gray-300 bg-white focus:outline-none focus:border-green-500 focus:bg-white"></textarea>
               </div>
             </div>
           </div>
         </div>
 
-        <hr className="my-8 border-green-500 w-4/5 mx-auto" />
-
-        <div className="flex flex-col md:flex-row gap-4 md:gap-10 py-4 px-6 md:px-12 lg:px-24">
+        <div className="mt-10 mb-6 flex flex-col md:flex-row gap-16 md:gap-12 py-4 px-6 md:px-12 lg:px-24">
           <div className="md:w-2/3">
             <div className="bg-white rounded-lg py-3">
               <table className="w-full">
@@ -155,7 +119,7 @@ const Card = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className="">
+                  <tr className="border-b border-green-500">
                     <td className="py-1">
                       <div className="flex items-center">
                         <img className="h-14 md:h-20 w-14 md:w-20 mr-4" src="https://firebasestorage.googleapis.com/v0/b/fresh-express-fdc6e.appspot.com/o/1712333468879Avocado-Hass-Each-Panetta-Mercato-768x768.jpeg?alt=media&token=faa612e7-47fe-4de7-8aa5-5b99c1ef662b" alt="Product image" />
@@ -177,7 +141,7 @@ const Card = () => {
                       </button>
                     </td>
                   </tr>
-                  <tr className="">
+                  <tr className="border-b border-green-500">
                     <td className="py-1">
                       <div className="flex items-center">
                         <img className="h-14 md:h-20 w-14 md:w-20 mr-4" src="https://firebasestorage.googleapis.com/v0/b/fresh-express-fdc6e.appspot.com/o/1712333479348Pears-Packham-Kg-Panetta-Mercato-768x768.jpeg?alt=media&token=bbaf0094-9599-4154-99f5-9117d05bb613" alt="Product image" />
@@ -204,15 +168,14 @@ const Card = () => {
             </div>
           </div>
           <div className="md:w-1/3">
-            <div className="bg-white rounded-lg py-3">
-              <h2 className="text-lg font-semibold mb-8">SEND QUERY</h2>
-              <p className="font-semibold mb-4">Let us know what you want</p>
-              <button className="w-full bg-green-600 hover:bg-green-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded-lg">Checkout</button>
+            <div className="bg-white border rounded-lg p-5 border-green-500">
+              <h2 className="text-xl font-semibold mb-6">SEND QUERY</h2>
+              <p className="font-semibold mb-6">Let us know what you want</p>
+              <button type="submit" className="w-full bg-green-600 hover:bg-green-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded-lg">Checkout</button>
             </div>
           </div>
         </div>
-
-      </div>
+      </form>
       <Footer />
     </div>
   );

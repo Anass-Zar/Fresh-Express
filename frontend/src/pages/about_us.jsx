@@ -1,96 +1,91 @@
 import Footer from "../components/footer"
 import Navbar from "../components/navbar"
+import { Link } from "react-router-dom"
+import vfImage from "../images/vf.jpg";
 
 const About_US = () => {
 
-  return (<>
-    <Navbar />
-
+  return (
     <div>
+      <Navbar />
+      <div>
 
-  <section className="block px-6 py-10 md:py-20 md:px-10  border-t border-b border-neutral-900 ">
+        <div className="w-full h-40 md:h-52 text-center grid items-center content-center font-[Dosis] uppercase" style={{ backgroundImage: `url(${vfImage})`, backgroundSize: "cover", backgroundPosition: "center" }}>
+          <div className="w-full h-40 md:h-52 py-16 text-center grid items-center content-center bg-[#16A34Add]">
+            <h1 className="text-3xl md:text-5xl font-bold text-gray-50 text-center">ABOUT US</h1>
+            <h1 className="md:text-lg font-semibold text-gray-50 mt-3 flex justify-center gap-2">
+              <Link to="/" className="hover:underline">
+                Home
+              </Link>
+              &gt;
+              <Link to="/about_us" className="hover:underline">
+                About Us
+              </Link>
+            </h1>
+          </div>
+        </div>
 
-    <div className="mx-auto max-w-5xl text-center">
-      <span className="text-black my-3 flex items-center justify-center font-medium uppercase tracking-wider">
-        About Us
-      </span>
-      <h2
-        className="block w-full bg-gradient-to-b from-black to-gray-400 bg-clip-text font-bold text-transparent text-3xl sm:text-4xl">
-        Bringing Freshness to Your Doorstep
-      </h2>
-      <p
-        className="mx-auto my-4 w-full max-w-xl bg-transparent text-center font-medium leading-relaxed tracking-wide text-black">
-        At Fruits & Website, we are passionate about delivering the freshest and most delicious fruits directly to your
-        doorstep. Our mission is to make it easy and convenient for you to enjoy the goodness of natures bounty.
-      </p>
+        <div className="block px-6 pb-10 pt-8 md:pb-20 md:py-16 md:px-10 ">
+
+          <div className="mx-auto max-w-5xl text-center">
+            <h2
+              className="block w-full text-gray-900 font-bold text-3xl sm:text-4xl">
+              Bringing Freshness to Your Doorstep
+            </h2>
+            <p
+              className="mx-auto my-4 w-full max-w-xl bg-transparent text-center font-medium leading-relaxed tracking-wide text-gray-700">
+              At Fruits & Website, we are passionate about delivering the freshest and most delicious fruits directly to your
+              doorstep. Our mission is to make it easy and convenient for you to enjoy the goodness of natures bounty.
+            </p>
+          </div>
+
+          <div className="mx-auto max-w-7xl z-10 grid grid-cols-1 gap-10 pt-14 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="rounded-md border border-green-600 p-8 text-center shadow">
+              <div className="bg-green-500 button-text mx-auto flex h-12 w-12 items-center justify-center rounded-md">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" className="w-6 h-6">
+                  <path d="M349.4 44.6c5.9-13.7 1.5-29.7-10.6-38.5s-28.6-8-39.9 1.8l-256 224c-10 8.8-13.6 22.9-8.9 35.3S50.7 288 64 288H175.5L98.6 467.4c-5.9 13.7-1.5 29.7 10.6 38.5s28.6 8 39.9-1.8l256-224c10-8.8 13.6-22.9 8.9-35.3s-16.6-20.7-30-20.7H272.5L349.4 44.6z" fill="#FFFFFF"/>
+                </svg>
+              </div>
+              <h3 className="mt-6 font-semibold text-lg">Our Commitment to Quality</h3>
+              <p className="my-4 mb-0 font-normal leading-relaxed tracking-wide">We source our fruits from the
+                finest farms and ensure that only the best produce reaches your table. Quality is our top priority, and we
+                guarantee freshness with every delivery.
+              </p>
+            </div>
+
+            <div className="rounded-md border border-green-600 p-8 text-center shadow">
+              <div className="bg-green-500 button-text mx-auto flex h-12 w-12 items-center justify-center rounded-md">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" className="w-6 h-6">
+                <path d="M249.6 471.5c10.8 3.8 22.4-4.1 22.4-15.5V78.6c0-4.2-1.6-8.4-5-11C247.4 52 202.4 32 144 32C93.5 32 46.3 45.3 18.1 56.1C6.8 60.5 0 71.7 0 83.8V454.1c0 11.9 12.8 20.2 24.1 16.5C55.6 460.1 105.5 448 144 448c33.9 0 79 14 105.6 23.5zm76.8 0C353 462 398.1 448 432 448c38.5 0 88.4 12.1 119.9 22.6c11.3 3.8 24.1-4.6 24.1-16.5V83.8c0-12.1-6.8-23.3-18.1-27.6C529.7 45.3 482.5 32 432 32c-58.4 0-103.4 20-123 35.6c-3.3 2.6-5 6.8-5 11V456c0 11.4 11.7 19.3 22.4 15.5z" fill="#FFFFFF"/>
+              </svg>
+              </div>
+              <h3 className="mt-6 font-semibold text-lg">Our Story</h3>
+              <p className="my-4 mb-0 font-normal leading-relaxed tracking-wide">Fruits & Website was founded
+                with a simple idea: to make fresh, high-quality fruits accessible to everyone. Since then, we have grown
+                into a trusted name in the industry, known for our commitment to excellence and customer satisfaction.
+              </p>
+            </div>
+
+            <div className="rounded-md border border-green-600  p-8 text-center shadow">
+              <div className="bg-green-500 button-text mx-auto flex h-12 w-12 items-center justify-center rounded-md">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-6 h-6">
+                  <path d="M469.3 19.3l23.4 23.4c25 25 25 65.5 0 90.5l-56.4 56.4L322.3 75.7l56.4-56.4c25-25 65.5-25 90.5 0zM44.9 353.2L299.7 98.3 413.7 212.3 158.8 467.1c-6.7 6.7-15.1 11.6-24.2 14.2l-104 29.7c-8.4 2.4-17.4 .1-23.6-6.1s-8.5-15.2-6.1-23.6l29.7-104c2.6-9.2 7.5-17.5 14.2-24.2zM249.4 103.4L103.4 249.4 16 161.9c-18.7-18.7-18.7-49.1 0-67.9L94.1 16c18.7-18.7 49.1-18.7 67.9 0l19.8 19.8c-.3 .3-.7 .6-1 .9l-64 64c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0l64-64c.3-.3 .6-.7 .9-1l45.1 45.1zM408.6 262.6l45.1 45.1c-.3 .3-.7 .6-1 .9l-64 64c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0l64-64c.3-.3 .6-.7 .9-1L496 350.1c18.7 18.7 18.7 49.1 0 67.9L417.9 496c-18.7 18.7-49.1 18.7-67.9 0l-87.4-87.4L408.6 262.6z" fill="#FFFFFF"/>
+                </svg>
+              </div>
+              <h3 className="mt-6 font-semibold text-lg">Our Vision</h3>
+              <p className="my-4 mb-0 font-normal leading-relaxed tracking-wide">
+                Our vision is to become the go-to destination for fresh, high-quality fruits. We strive to create a
+                seamless shopping experience for our customers, providing them with the freshest produce and the best
+                customer service.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <Footer />
     </div>
-
-    <div className="mx-auto max-w-7xl z-10 grid grid-cols-1 gap-10 pt-14 sm:grid-cols-2 lg:grid-cols-3">
-      <div className="rounded-md border border-neutral-800 p-8 text-center shadow">
-        <div className="bg-green-500 button-text mx-auto flex h-12 w-12 items-center justify-center rounded-md border">
-        <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-bolt" width="24"
-            height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none"
-            strokeLinecap="round" strokeLinejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-            <polyline points="13 3 13 10 19 10 11 21 11 14 5 14 13 3"></polyline>
-          </svg>
-        </div>
-        <h3 className="mt-6 text-black">Our Commitment to Quality</h3>
-        <p className="my-4 mb-0 font-normal leading-relaxed tracking-wide text-black">We source our fruits from the
-          finest farms and ensure that only the best produce reaches your table. Quality is our top priority, and we
-          guarantee freshness with every delivery.
-        </p>
-      </div>
-
-      <div className="rounded-md border border-neutral-800 p-8 text-center shadow">
-        <div className="bg-green-500 button-text mx-auto flex h-12 w-12 items-center justify-center rounded-md border">
-        <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-color-swatch" width="24"
-            height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none"
-            strokeLinecap="round" strokeLinejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-            <path d="M19 3h-4a2 2 0 0 0 -2 2v12a4 4 0 0 0 8 0v-12a2 2 0 0 0 -2 -2"></path>
-            <path d="M13 7.35l-2 -2a2 2 0 0 0 -2.828 0l-2.828 2.828a2 2 0 0 0 0 2.828l9 9"></path>
-            <path d="M7.3 13h-2.3a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h12"></path>
-            <line x1="17" y1="17" x2="17" y2="17.01"></line>
-          </svg>
-          
-        </div>
-        <h3 className="mt-6 text-black">Our Story</h3>
-        <p className="my-4 mb-0 font-normal leading-relaxed tracking-wide text-black">Fruits & Website was founded
-          with a simple idea: to make fresh, high-quality fruits accessible to everyone. Since then, we have grown
-          into a trusted name in the industry, known for our commitment to excellence and customer satisfaction.
-        </p>
-      </div>
-
-      <div className="rounded-md border border-neutral-800  p-8 text-center shadow">
-        <div className="bg-green-500 button-text mx-auto flex h-12 w-12 items-center justify-center rounded-md border">
-          <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-tools" width="24"
-            height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none"
-            strokeLinecap="round" strokeLinejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-            <path d="M3 21h4l13 -13a1.5 1.5 0 0 0 -4 -4l-13 13v4"></path>
-            <line x1="14.5" y1="5.5" x2="18.5" y2="9.5"></line>
-            <polyline points="12 8 7 3 3 7 8 12"></polyline>
-            <line x1="7" y1="8" x2="5.5" y2="9.5"></line>
-            <polyline points="16 12 21 17 17 21 12 16"></polyline>
-            <line x1="16" y1="17" x2="14.5" y2="18.5"></line>
-          </svg>
-        </div>
-        <h3 className="mt-6 text-black">Our Vision</h3>
-        <p className="my-4 mb-0 font-normal leading-relaxed tracking-wide text-black">
-          Our vision is to become the go-to destination for fresh, high-quality fruits. We strive to create a
-          seamless shopping experience for our customers, providing them with the freshest produce and the best
-          customer service.
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-
-
-
-    <Footer />
-  </>
   )
 }
 

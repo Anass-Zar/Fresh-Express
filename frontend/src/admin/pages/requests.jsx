@@ -48,6 +48,7 @@ const Requests = () => {
             <tbody className='text-sm'>
               {requests
               .filter((request) => request.email.toLowerCase().includes(search.toLowerCase()))
+              .reverse()
               .map((request, index) => (
                 <tr key={index} className="bg-gray-50 border-b hover:bg-gray-100 cursor-pointer hover:border hover:border-gray-300">
                     <td className="px-6 py-4 border-b border-blue-gray-50">

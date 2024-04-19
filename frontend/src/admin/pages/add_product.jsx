@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 const Add_Product = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({});
+  const [loading, setLoading] = useState(false);
 
   const storeImage = async (file) => {
     const storage = getStorage(app);
@@ -37,11 +38,14 @@ const Add_Product = () => {
   const handleChange = (e) => {
     if (e.target.id === 'image') {
       const file = e.target.files[0];
+      setLoading(true);
       storeImage(file).then((url) => {
         setFormData({ ...formData, image: url });
+        setLoading(false);
       }).catch((error) => {
         console.error(error);
-        toast.error('Failed to upload image');
+        toast.error('Image upload failed (2 MB max per image)');
+        setLoading(false);
       });
     } else {
       setFormData({ ...formData, [e.target.id]: e.target.value });
@@ -52,6 +56,7 @@ const Add_Product = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const res = await fetch(`http://localhost:3000/api/products/add_product`, {
         method: 'POST',
@@ -64,9 +69,11 @@ const Add_Product = () => {
       });
       const data = await res.json();
       console.log(data);
+      setLoading(false);
       navigate('/admin/list_products');
     } catch (error) {
       console.error(error.message);
+      setLoading(false);
     }
   };
 
@@ -140,7 +147,11 @@ const Add_Product = () => {
             <div className="md:flex md:items-center">
               <div className="md:w-1/3"></div>
               <div className="md:w-2/3">
-                <button className="shadow bg-green-600 hover:bg-green-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded-lg" type="submit">
+                <button 
+                  className={`${loading ? 'cursor-not-allowed shadow' : 'cursor-pointer' } shadow bg-green-600 hover:bg-green-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded-lg`} 
+                  type="submit"
+                  disabled={loading}
+                >
                   Add Product
                 </button>
               </div>
