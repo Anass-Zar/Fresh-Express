@@ -83,7 +83,7 @@ const Home = () => {
                                 <i className="fa fa-phone-alt text-white text-3xl"></i>
                             </div>
                             <div className="text-center">
-                                <h5 className="mb-2 text-xl font-medium">24/7 Support</h5>
+                                <h5 className="mb-2 text-xl font-medium">24/7 Test</h5>
                                 <p className="mb-0 text-gray-400">Support every time fast</p>
                             </div>
                         </div>
