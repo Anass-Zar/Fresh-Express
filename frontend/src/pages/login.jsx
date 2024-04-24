@@ -2,7 +2,7 @@ import { Toaster, toast } from 'sonner'; // Update this import to the correct pa
 import { useDispatch, useSelector } from "react-redux";
 import { loginStart, loginSuccess, loginFailure } from "../redux/admin/adminSlice";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const Admin_Login = () => {
 
@@ -11,6 +11,11 @@ const Admin_Login = () => {
   const {loading} = useSelector((state) => state.admin);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const alreadyLogin = useSelector((state) => state.admin.currentAdmin);
+  if (alreadyLogin) {
+    return <Navigate to="/admin/requests" />;
+  }
 
   const handleChange = (e) => {
     setFormData({

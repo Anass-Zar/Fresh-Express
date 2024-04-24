@@ -1,0 +1,62 @@
+{
+  "navbar" : {
+    "Link1" : "ACCUEIL",
+    "Link2" : "PRODUITS",
+    "Link3" : "À PROPOS DE NOUS",
+    "Link4" : "CONTACTEZ-NOUS",
+    "Address" : "Hay Mohammady, Agadir"
+  },
+  "footer" : {
+    "T1" : "Contacts",
+    "T2" : "Langues",
+    "T3" : "Réseaux Sociaux",
+    "T_Phone" : "Téléphone",
+    "T_Email" : "Email",
+    "T_Address" : "Adresse",
+    "Address" : "Hay Mohammady, Agadir"
+  },
+  "slider" : {
+    "S1" : "Bonté mondiale, livrée fraîche.",
+    "S2" : "Découvrez les saveurs du monde, une bouchée à la fois.",
+    "S3" : "De la ferme à l'assiette, l'excellence ne connaît pas de frontières.",
+    "S4" : "Des sélections fraîches du monde entier, rien que pour vous.",
+    "S5" : "Goûtez le monde avec nos produits internationaux.",
+    "B" : "En savoir plus"
+  },
+  "products" : {
+    "Title" : "PRODUITS",
+    "Link" : "Produits",
+    "T1" : "RECHERCHE DE PRODUITS",
+    "T2" : "TOUTES CATÉGORIES",
+    "I" : "Recherche...",
+    "C1" : "Tous",
+    "C2" : "Fruits",
+    "C3" : "Légumes",
+    "N" : "Suivant",
+    "P" : "Précédent"
+  },
+  "contact_us" : {
+    "Title" : "CONTACTEZ-NOUS",
+    "Link" : "CONTACTEZ-NOUS",
+    "T1" : "Notre Téléphone",
+    "T2" : "Notre E-mail",
+    "T3" : "Notre Adresse",
+    "Address" : "Hay Mohammady, Agadir",
+    "I1" : "Nom et Prénom",
+    "I2" : "E-mail",
+    "I3" : "Message",
+    "B" : "Soumettre"
+  },
+  "about_us" : {
+    "Title" : "À PROPOS DE NOUS",
+    "Link" : "À propos de nous",
+    "T" : "Apporter de la fraîcheur à votre porte",
+    "P" : "Chez Fruits & Website, nous sommes passionnés par la livraison des fruits les plus frais et les plus délicieux directement à votre porte. Notre mission est de vous permettre de profiter facilement et facilement des bienfaits de la nature.",
+    "T1" : "Notre engagement envers la qualité",
+    "T2" : "Notre histoire",
+    "T3" : "Notre vision",
+    "P1" : "Nous nous approvisionnons en fruits auprès des meilleures fermes et veillons à ce que seuls les meilleurs produits arrivent à votre table. La qualité est notre priorité absolue et nous garantissons la fraîcheur à chaque livraison.",
+    "P2" : "Fruits & Website a été fondée avec une idée simple : rendre accessible à tous des fruits frais et de qualité. Depuis lors, nous sommes devenus un nom de confiance dans l’industrie, connu pour notre engagement envers l’excellence et la satisfaction de nos clients.",
+    "P3" : "Notre vision est de devenir la destination incontournable pour les fruits frais et de haute qualité. Nous nous efforçons de créer une expérience d'achat fluide pour nos clients, en leur fournissant les produits les plus frais et le meilleur service client."
+  }
+}

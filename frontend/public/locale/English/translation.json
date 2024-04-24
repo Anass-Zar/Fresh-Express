@@ -1,0 +1,62 @@
+{
+  "navbar" : {
+    "Link1" : "HOME",
+    "Link2" : "PRODUCTS",
+    "Link3" : "ABOUT US",
+    "Link4" : "CONTACT US",
+    "Address" : "Hay Mohammady, Agadir"
+  },
+  "footer" : {
+    "T1" : "Contacts",
+    "T2" : "Languages",
+    "T3" : "Social Media",
+    "T_Phone" : "Phone",
+    "T_Email" : "Email",
+    "T_Address" : "Address",
+    "Address" : "Hay Mohammady, Agadir"
+  },
+  "slider" : {
+    "S1" : "Global goodness, delivered fresh.",
+    "S2" : "Discover the world's flavors, one bite at a time.",
+    "S3" : "From farm to fork, excellence knows no borders.",
+    "S4" : "Fresh picks from around the world, just for you.",
+    "S5" : "Taste the world with our international produce.",
+    "B" : "Read More"
+  },
+  "products" : {
+    "Title" : "PRODUCTS",
+    "Link" : "Products",
+    "T1" : "SEARCH PRODUCTS",
+    "T2" : "ALL CATEGORIES",
+    "I" : "Search...",
+    "C1" : "All",
+    "C2" : "Fruits",
+    "C3" : "Vegetables",
+    "N" : "Next",
+    "P" : "Previous"
+  },
+  "contact_us" : {
+    "Title" : "Contact US",
+    "Link" : "Contact us",
+    "T1" : "Our Phone",
+    "T2" : "Our Email",
+    "T3" : "Our Address",
+    "Address" : "Hay Mohammady, Agadir",
+    "I1" : "Full Name",
+    "I2" : "Email",
+    "I3" : "Message",
+    "B" : "Submit"
+  },
+  "about_us" : {
+    "Title" : "ABOUT US",
+    "Link" : "About us",
+    "T" : "Bringing Freshness to Your Doorstep",
+    "P" : "At Fruits & Website, we are passionate about delivering the freshest and most delicious fruits directly to your doorstep. Our mission is to make it easy and convenient for you to enjoy the goodness of nature's bounty.",
+    "T1" : "Our Commitment to Quality",
+    "T2" : "Our Story",
+    "T3" : "Our Vision",
+    "P1" : "We source our fruits from the finest farms and ensure that only the best produce reaches your table. Quality is our top priority, and we guarantee freshness with every delivery.",
+    "P2" : "Fruits & Website was founded with a simple idea: to make fresh, high-quality fruits accessible to everyone. Since then, we have grown into a trusted name in the industry, known for our commitment to excellence and customer satisfaction.",
+    "P3" : "Our vision is to become the go-to destination for fresh, high-quality fruits. We strive to create a seamless shopping experience for our customers, providing them with the freshest produce and the best customer service."
+  }
+}

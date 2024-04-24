@@ -64,7 +64,7 @@ const List_Product = () => {
             .map((product) => (
               <div key={product._id} className='border border-gray-500 rounded-lg p-4 '>
                 <img src={product.image} alt="Image" className='rounded-lg' />
-                <Link to={`/admin/product_info/${product._id}`} className='mb-1 text-xl font-semibold'>{product.title}</Link>
+                <Link to={`/admin/product_info/${product._id}`} className='mb-1 text-xl font-semibold line-clamp-1'>{product.title}</Link>
                 <div className='mb-2 flex justify-between'>
                   <p className='text-lg'>{product.category}</p>
                   <p className={`text-lg font-semibold ${product.stock ? 'text-green-500' : 'text-red-500'}`}>{product.stock ? 'In stock' : 'Out of stock'}</p>

@@ -3,23 +3,9 @@ import Sidebar from "../components/sidebar";
 import { useParams } from "react-router-dom";
 
 const Request = () => {
-  const [products, setProducts] = useState([]);
   const { request } = useParams();
   const [formData, setFormData] = useState({});
-
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await fetch('http://localhost:3000/api/products/list_products');
-        const data = await response.json();
-        setProducts(data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchProducts();
-  }, []);
+  const [selectedStatus, setSelectedStatus] = useState("waiting");
 
   useEffect(() => {
     const fetchListing = async () => {
@@ -39,9 +25,15 @@ const Request = () => {
     fetchListing();
   }, [request]);
 
+  console.log(formData.status);
+  console.log(selectedStatus);
+
+  const handleStatusChange = (e) => {
+    setSelectedStatus(e.target.value);
+  };
 
   return (
-    <div className="flex ">
+    <div className="flex">
       <Sidebar />
       <div className="ml-52 w-full py-6 px-6">
         <h1 className="text-lg font-bold mb-8">Request:</h1>
@@ -57,60 +49,36 @@ const Request = () => {
           <p className="mb-3">{formData.message}</p>
           <label className="font-semibold">Order : </label>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-10 xl:gap-x-16 gap-y-4 mb-3 mt-2">
-            {products.map((product) => (
-              <div key={product._id} className="flex items-center justify-between border rounded-lg pl-2 pr-6">
+            {formData.order && formData.order.map((product) => (
+              <div key={product} className="flex items-center justify-between border rounded-lg pl-2 pr-6">
                 <div className="flex items-center gap-3">
-                  <img src={product.image} alt="Image" className="w-16 h-16  rounded-lg" />
+                  <img src={product.image} alt="Image" className="w-16 h-16 rounded-lg" />
                   <h1>{product.title}</h1>
                 </div>
-                <h1>x 1</h1>
+                <h1>x {product.quantity}</h1>
               </div>
             ))}
           </div>
-
-          <div className='flex justify-center gap-12 mt-12'>
-            <div className='flex items-center'>
-              <input type="radio" name="status" id="accepted" className="w-4 h-4" />
-              <label htmlFor="accepted" className='text-lg ml-2 text-gray-700'>Accepted</label>
+          <form className="inline-grid justify-items-center gap-4 mt-9 w-full mx-auto">
+            <div className='flex justify-center gap-10'>
+              <div className='flex items-center'>
+                <input type="radio" name="status" id="accepted" className="w-4 h-4 cursor-pointer" value="accepted" checked={selectedStatus === "accepted"} onChange={handleStatusChange} />
+                <label htmlFor="accepted" className='text-lg ml-1 text-gray-700 cursor-pointer'>Accepted</label>
+              </div>
+              <div className='flex items-center'>
+                <input type="radio" name="status" id="waiting" className="w-4 h-4 cursor-pointer" value="waiting" checked={selectedStatus === "waiting"} onChange={handleStatusChange} />
+                <label htmlFor="waiting" className='text-lg ml-1 text-gray-700 cursor-pointer'>Waiting</label>
+              </div>
+              <div className='flex items-center'>
+                <input type="radio" name="status" id="refused" className='w-4 h-4 cursor-pointer' value="refused" checked={selectedStatus === "refused"} onChange={handleStatusChange} />
+                <label htmlFor="refused" className='text-lg ml-1 text-gray-700 cursor-pointer'>Refused</label>
+              </div>
             </div>
-            <div className='flex items-center'>
-              <input type="radio" name="status" id="refused" className='w-4 h-4' />
-              <label htmlFor="refused" className='text-lg ml-2 text-gray-700'>Refused</label>
-            </div>
-          </div>
+            <button type="submit" className="w-20 cursor-pointer bg-green-600 hover:bg-green-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded-lg">
+              Save
+            </button>
+          </form>
         </div>
-        {/* <div className="bg-white border border-gray-400 rounded-lg p-10 flex">
-
-          <div className="w-1/3">
-            <h1 className="mb-2">{formData.fullName}</h1>
-            <h1 className="mb-2">{new Date(formData.createdAt).toLocaleDateString("en-GB")}</h1>
-            <h1 className="mb-2">{formData.phone}</h1>
-            <h1 className="mb-2">{formData.email}</h1>
-            <h1 className="mb-2">{formData.country}</h1>
-          </div>
-
-          <div className="w-2/3">
-            <p className="mb-3">{formData.message}</p>
-            <div className="inline-flex space-x-1 border-[2px] border-gray-400 rounded-xl select-none">
-
-              <label className="radio flex flex-grow items-center justify-center rounded-lg p-1 cursor-pointer">
-                <input type="radio" name="status" value="Accepted" className="peer hidden" />
-                <span className="peer-checked:bg-green-500 peer-checked:text-gray-50 text-gray-700 px-2 py-1 rounded-lg transition duration-150 ease-in-out">
-                  Accepted
-                </span>
-              </label>
-            
-              <label className="radio flex flex-grow items-center justify-center rounded-lg p-1 cursor-pointer">
-                <input type="radio" name="status" value="Refused" className="peer hidden" />
-                <span className="peer-checked:bg-red-500 peer-checked:text-gray-50 text-gray-700 px-2 py-1 rounded-lg transition duration-150 ease-in-out">
-                  Refused
-                </span>
-              </label>
-              
-            </div>
-          </div>
-
-        </div> */}
       </div>
     </div>
   );

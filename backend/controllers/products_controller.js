@@ -60,3 +60,26 @@ export const detailsProduct = async (req, res) => {
         return res.status(500).json({ error: "Internal server error" });
     }
 }
+
+export const searchProducts = async (req, res, next) => {
+  try {
+    const limit = parseInt(req.query.limit) || 20;
+    const start = parseInt(req.query.start) || 0;
+    let category = req.query.category;
+    if (category === undefined || category === "all") {
+      category = { $in: ["Vegetables", "Fruits"]};
+    }
+    const search = req.query.search || "";
+    const sort = req.query.sort || "createdAt";
+    const order = req.query.order || "desc";
+    const products = await Products.find({  
+      title: { $regex: search, $options: 'i'}, category
+    })
+    .sort({ [sort]: order})
+    .limit(limit)
+    .skip(start)
+    return res.status(200).json(products)
+  } catch (error) {
+    next(error);
+  }
+}

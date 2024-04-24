@@ -17,9 +17,7 @@ const Sidebar = () => {
       const data = await res.json();
       if (data.success === false) {
         dispatch(logoutFailure(data.message))
-        console.error("An error occurred:", data.message);
       } else {
-        console.log("Account sign out successfully");
         dispatch(logoutSuccess(data));
         navigate('/');
       }

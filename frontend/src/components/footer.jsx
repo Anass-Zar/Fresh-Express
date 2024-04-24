@@ -1,9 +1,52 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import Fresh_Express from "../images/express.png"
-
+import Fresh_Express from "../images/express.png";
+import i18n from "i18next";
+import { initReactI18next } from "react-i18next";
+import LanguageDetector from "i18next-browser-languagedetector";
+import HttpApi from "i18next-http-backend";
+import cookies from "js-cookie";
+import { useTranslation } from "react-i18next";
+i18n
+  .use(initReactI18next)
+  .use(LanguageDetector)
+  .use(HttpApi)
+  .init({
+    fallbackLng: "English",
+    detection: {
+      order: [
+        "cookie",
+        "htmlTag",
+        "localStorage",
+        "sessionStorage",
+        "navigator",
+        "path",
+        "subdomain",
+      ],
+      caches: ["cookie"],
+    },
+    backend: {
+      loadPath: "../../public/locale/{{lng}}/translation.json",
+    },
+  });
 
 const Footer = () => {
+  const { t } = useTranslation();
+  const [selectedLanguage, setSelectedLanguage] = useState('English'); 
 
+  useEffect(() => {
+    const savedLanguage = cookies.get("i18next") || "English";
+    setSelectedLanguage(savedLanguage);
+    i18n.changeLanguage(savedLanguage);
+  }, []);
+
+  const changeLanguageWithTransition = (language) => {
+    setSelectedLanguage(language); 
+    i18n.changeLanguage(language); 
+    cookies.set("i18next", language);
+  };
+
+  console.log(`Selected language is ${selectedLanguage}`);
   return (
     <div className="mx-auto w-full">
       <div className="pt-10 px-6 md:px-10 grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-5">
@@ -24,30 +67,32 @@ const Footer = () => {
           </div>
         </div>
         <div className="space-y-2 text-sm">
-          <p className="text-lg font-bold tracking-wide text-gray-900">Contacts</p>
+          <p className="text-lg font-bold tracking-wide text-gray-900">{t("footer.T1")}</p>
           <div className="flex">
-            <p className="mr-1 text-gray-800">Phone:</p>
+            <p className="mr-1 text-gray-800">{t("footer.T_Phone")} :</p>
             <a href="tel:0722029078" aria-label="Our phone" title="Our phone" className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800">+212 722-029-078</a>
           </div>
           <div className="flex">
-            <p className="mr-1 text-gray-800">Email:</p>
+            <p className="mr-1 text-gray-800">{t("footer.T_Email")} :</p>
             <a href="mailto:anasszarioh10.mail" aria-label="Our email" title="Our email" className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800">anasszarioh10@gmail.com</a>
           </div>
           <div className="flex">
-            <p className="mr-1 text-gray-800">Address:</p>
+            <p className="mr-1 text-gray-800">{t("footer.T_Address")} :</p>
             <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer" aria-label="Our address" title="Our address" className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800">
-              Hay Mohammady, Agadir, Morocco
+              {t("footer.Address")}
             </a>
           </div>
         </div>
         <div className="space-y-2 text-sm">
-          <p className="text-lg font-bold tracking-wide text-gray-900">Languge :</p>
-          <p className="mr-1 text-gray-800">عربية</p>
-          <p className="mr-1 text-gray-800">English</p>
-          <p className="mr-1 text-gray-800">Francais</p>
+          <p className="text-lg font-bold tracking-wide text-gray-900">{t("footer.T2")}</p>
+          <div className='grid justify-items-start gap-2'>
+            <button className="mr-1 text-gray-800" onClick={() => { changeLanguageWithTransition("English") }}>English</button>
+            <button className="mr-1 text-gray-800" onClick={() => { changeLanguageWithTransition("Francais") }}>Francais</button>
+            <button className="mr-1 text-gray-800" onClick={() => { changeLanguageWithTransition("Arabic") }}>العربية</button>
+          </div>
         </div>
         <div className="text-sm">
-          <span className="text-lg font-bold tracking-wide text-gray-900">Social</span>
+          <span className="text-lg font-bold tracking-wide text-gray-900">{t("footer.T3")}</span>
           <div className="flex items-center mt-1 space-x-3">
             <a href="/" className="text-gray-500 hover:text-cyan-500">
               <svg viewBox="0 0 24 24" fill="currentColor" className="h-6">

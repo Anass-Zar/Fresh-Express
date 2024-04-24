@@ -27,7 +27,7 @@ const RequestsSchema = new Schema({
     default: "waiting"
   },
   order: {
-    type: ObjectId
+    type: Array
   }
 }, { timestamps: true });
 
