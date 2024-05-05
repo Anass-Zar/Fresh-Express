@@ -50,7 +50,7 @@ const Footer = () => {
   console.log(`Selected language is ${selectedLanguage}`);
   return (
     <div className="mx-auto w-full">
-      <div className="pt-10 px-6 md:px-10 grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-5">
+      <div className="pt-10 px-6 md:px-10 grid gap-10 row-gap-6 pb-8 bg-gray-200 sm:grid-cols-2 lg:grid-cols-5">
         <div className="sm:col-span-2">
             <Link to="/"className='flex items-center gap-2 md:gap-4 w-44 md:w-56'>
                 <img className="w-10 md:w-12 " src={Fresh_Express} alt="logo" />
