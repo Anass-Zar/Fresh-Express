@@ -43,7 +43,7 @@ const Slider = () => {
 
   return (
     <div className="relative w-full">
-      <div className="relative h-[250px] md:h-[350px] lg:h-[400px] xl:h-[500px] overflow-hidden">
+      <div className="relative h-[180px] sm:h-[300px] md:h-[350px] lg:h-[400px] xl:h-[500px] overflow-hidden">
         {slides.map((slide, index) => (
           <div
             key={index}
@@ -54,7 +54,7 @@ const Slider = () => {
             <div className="absolute inset-0 flex justify-center items-center bg-black/20">
               <div className="grid justify-items-center gap-10">
                 <h1 className='text-2xl md:text-3xl lg:text-5xl font-bold text-white text-center py-2 font-[Dosis] uppercase'>{sentences[index]}</h1>
-                <Link to="/about_us" className="text-md md:text-lg lg:text-xl font-semibold text-white py-2 px-4 bg-green-500 hover:bg-green-400 rounded-3xl">{t("slider.B")}</Link>
+                <Link to="/about_us" className="mb-8 text-md md:text-lg lg:text-xl font-semibold text-white py-2 px-4 bg-green-500 hover:bg-green-400 rounded-3xl">{t("slider.B")}</Link>
               </div>
             </div>
           </div>
@@ -65,7 +65,7 @@ const Slider = () => {
           <button
             key={index}
             type="button"
-            className={`w-2.5 h-2.5 rounded-full ${currentSlide === index - 1 ? 'bg-white' : 'bg-gray-300'}`}
+            className={`w-2.5 h-2.5 -mb-3 rounded-full ${currentSlide === index - 1 ? 'bg-white' : 'bg-gray-300'}`}
             aria-current={currentSlide === index - 1 ? 'true' : 'false'}
             aria-label={`Slide ${index}`}
             onClick={() => setCurrentSlide(index - 1)}

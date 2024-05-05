@@ -49,6 +49,10 @@ const Nav = () => {
       cookies.set("i18next", language);
     };
 
+    useEffect(() => {
+      document.body.dir = selectedLanguage === 'Arabic' ? 'rtl' : 'ltr';
+  }, [selectedLanguage]);
+
     console.log(`Selected language is ${selectedLanguage}`);
 
     let Links =[

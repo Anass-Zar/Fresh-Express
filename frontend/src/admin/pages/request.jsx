@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
 import Sidebar from "../components/sidebar";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+
 
 const Request = () => {
   const { request } = useParams();
   const [formData, setFormData] = useState({});
   const [selectedStatus, setSelectedStatus] = useState("waiting");
+
+  const navigate = useNavigate()
+
 
   useEffect(() => {
     const fetchListing = async () => {
@@ -31,6 +35,32 @@ const Request = () => {
   const handleStatusChange = (e) => {
     setSelectedStatus(e.target.value);
   };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await fetch(`http://localhost:3000/api/requests/requests/${request}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ status: selectedStatus }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        console.log("Status updated successfully");
+      } else {
+        console.error("Failed to update status:", data.message);
+      }
+    } catch (error) {
+      console.error("Error updating status:", error);
+    }
+    navigate("/admin/requests")
+  };
+
+
+
+
 
   return (
     <div className="flex">
@@ -59,7 +89,7 @@ const Request = () => {
               </div>
             ))}
           </div>
-          <form className="inline-grid justify-items-center gap-4 mt-9 w-full mx-auto">
+          <form onSubmit={handleSubmit} className="inline-grid justify-items-center gap-4 mt-9 w-full mx-auto">
             <div className='flex justify-center gap-10'>
               <div className='flex items-center'>
                 <input type="radio" name="status" id="accepted" className="w-4 h-4 cursor-pointer" value="accepted" checked={selectedStatus === "accepted"} onChange={handleStatusChange} />
@@ -74,6 +104,7 @@ const Request = () => {
                 <label htmlFor="refused" className='text-lg ml-1 text-gray-700 cursor-pointer'>Refused</label>
               </div>
             </div>
+            
             <button type="submit" className="w-20 cursor-pointer bg-green-600 hover:bg-green-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded-lg">
               Save
             </button>
