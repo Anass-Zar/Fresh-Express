@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Fresh_Express from "../images/express.png";
@@ -56,25 +57,20 @@ const Footer = () => {
                 <h1 className='text-lg md:text-2xl font-bold'>Fresh Express</h1>
             </Link> 
           <div className="mt-6 lg:max-w-xl">
-            <p className="text-sm text-gray-800">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
-            </p>
-            <p className="mt-4 text-sm text-gray-800">
-              Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-              Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-            </p>
+            <h2 className="text-md text-gray-800">
+            At Fresh Express we are passionate about delivering the freshest and most delicious fruits and vegetables directly to your doorstep. Our mission is to make it easy and convenient for you to enjoy the goodness of nature's bounty.
+            </h2>
           </div>
         </div>
         <div className="space-y-2 text-sm">
-          <p className="text-lg font-bold tracking-wide text-gray-900">{t("footer.T1")}</p>
+          <p className="mb-4 text-lg font-bold tracking-wide text-gray-900">{t("footer.T1")}</p>
           <div className="flex">
             <p className="mr-1 text-gray-800">{t("footer.T_Phone")} :</p>
-            <a href="tel:0722029078" aria-label="Our phone" title="Our phone" className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800">+212 722-029-078</a>
+            <a href="tel:0722029078" aria-label="Our phone" title="Our phone" className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800">+212 674-645-102</a>
           </div>
           <div className="flex">
             <p className="mr-1 text-gray-800">{t("footer.T_Email")} :</p>
-            <a href="mailto:anasszarioh10.mail" aria-label="Our email" title="Our email" className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800">anasszarioh10@gmail.com</a>
+            <a href="mailto:anasszarioh10.mail" aria-label="Our email" title="Our email" className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800">freshexpress@gmail.com</a>
           </div>
           <div className="flex">
             <p className="mr-1 text-gray-800">{t("footer.T_Address")} :</p>
@@ -85,7 +81,7 @@ const Footer = () => {
         </div>
         <div className="space-y-2 text-sm">
           <p className="text-lg font-bold tracking-wide text-gray-900">{t("footer.T2")}</p>
-          <div className='grid justify-items-start gap-2'>
+          <div className='grid justify-items-start gap-2 mb-6'>
             <button className="mr-1 text-gray-800" onClick={() => { changeLanguageWithTransition("English") }}>English</button>
             <button className="mr-1 text-gray-800" onClick={() => { changeLanguageWithTransition("Francais") }}>Francais</button>
             <button className="mr-1 text-gray-800" onClick={() => { changeLanguageWithTransition("Arabic") }}>العربية</button>
@@ -93,7 +89,7 @@ const Footer = () => {
         </div>
         <div className="text-sm">
           <span className="text-lg font-bold tracking-wide text-gray-900">{t("footer.T3")}</span>
-          <div className="flex items-center mt-1 space-x-3">
+          <div className="flex items-center space-x-3 mt-6">
             <a href="/" className="text-gray-500 hover:text-cyan-500">
               <svg viewBox="0 0 24 24" fill="currentColor" className="h-6">
                 <path
@@ -117,16 +113,12 @@ const Footer = () => {
               </svg>
             </a>
           </div>
-          <p className="mt-4 text-sm text-gray-500">
-            Bacon ipsum dolor amet short ribs pig sausage prosciutto chicken spare ribs salami.
-          </p>
         </div>
       </div>
       <div className="px-6 md:px-10 flex flex-col-reverse justify-between py-6 md:py-8 border-t lg:flex-row bg-green-600">
 
         <p className="text-sm text-white">
-          © Copyright 2024. Created by 
-          <a href="https://www.linkedin.com/in/anass-zarioh-884114298/" className="hover:text-black"> Anass Zarioh .</a>
+        © 2024 Fresh Express™. All Rights Reserved.
         </p>
         <ul className="flex flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">
           <li>

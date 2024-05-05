@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
 import { removeItem, updateQuantity } from "../redux/cart/cartSlice"
+import { toast } from "sonner"
 
 const Cart = ({product}) => {
   const dispatch = useDispatch()
@@ -14,6 +15,7 @@ const Cart = ({product}) => {
 
   const handleRemove = () => {
       dispatch(removeItem({ _id: product?._id}))
+      toast.success("Product Deleted Successfully")
   }
 
   useEffect(() => {

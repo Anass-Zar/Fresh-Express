@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import vfImage from "../images/vf.jpg";
 import { useSelector } from "react-redux"
 import Cart from "../components/cart";
+import { toast } from "sonner";
 
 
 const Checkout = () => {
@@ -44,10 +45,12 @@ const Checkout = () => {
       });
       if (response.ok) {
         console.log("Request sent successfully");
+        toast.success("Query Sent successfully")
         localStorage.removeItem("persist:cart");
         window.location.reload();
       } else {
         console.error("Failed to send request");
+        toast.error('Please Fill In All Fields');
       }
     } catch (error) {
       console.error("Error sending request:", error);

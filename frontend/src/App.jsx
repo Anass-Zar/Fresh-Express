@@ -15,10 +15,14 @@ import Add_Products from "./admin/pages/add_product"
 import Update_Products from "./admin/pages/update_product"
 import Product_info from "./admin/pages/product_info"
 import Error404 from "./pages/error404"
+import { Toaster } from 'sonner'
+
 
 function App() {
 
-  return (
+  return (<>
+    <Toaster position="bottom-left" richColors expand={true} />
+
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -41,6 +45,7 @@ function App() {
         <Route path="*" element={<Error404 />} />
       </Routes>
     </BrowserRouter>
+    </>
   )
 }
 

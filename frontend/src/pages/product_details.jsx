@@ -5,6 +5,7 @@ import { useParams, Link } from 'react-router-dom';
 import vfImage from "../images/vf.jpg";
 import { useDispatch } from "react-redux"
 import { addToCart } from "../redux/cart/cartSlice"
+import { toast } from 'sonner';
 
 const Product_Details = () => {
   const [product, setProduct] = useState({});
@@ -15,7 +16,9 @@ const Product_Details = () => {
       dispatch(addToCart({
           ...product,
           quantity: 1
-      }))
+      }
+    ))
+    toast.success("Product Added To Cart Successfully")
   }
 
   useEffect(() => {
