@@ -47,6 +47,10 @@ const Footer = () => {
     cookies.set("i18next", language);
   };
 
+  useEffect(() => {
+    document.body.dir = selectedLanguage === 'Arabic' ? 'rtl' : 'ltr';
+}, [selectedLanguage]);
+
   console.log(`Selected language is ${selectedLanguage}`);
   return (
     <div className="mx-auto w-full">

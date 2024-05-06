@@ -9,8 +9,8 @@ import { useTranslation } from "react-i18next";
 
 
 const Contact_Us = () => {
-    const [user_name, setUser_name] = useState('');
-    const [user_email, setUser_email] = useState('');
+    const [userName, setUserName] = useState('');
+    const [userEmail, setUserEmail] = useState('');
     const [message, setMessage] = useState('');
     const { t } = useTranslation();
 
@@ -19,7 +19,7 @@ const Contact_Us = () => {
     const sendEmail = (e) => {
       e.preventDefault();
 
-      if (user_name === '' || user_email === '' || message === '') {
+      if (userName === '' || userEmail === '' || message === '') {
         toast.error('Please Fill In All Fields');
       } else {
         emailjs
@@ -30,8 +30,8 @@ const Contact_Us = () => {
           () => {
             console.log('SUCCESS!');
             toast.success('Message Sent Successfully');
-            setUser_name("")
-            setUser_email("")
+            setUserName("")
+            setUserEmail("")
             setMessage("")
           },
           (error) => {
@@ -89,14 +89,14 @@ const Contact_Us = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <form ref={form} onSubmit={sendEmail} className="grid gap-4">
                   <div className="">
-                    <label htmlFor="user_name" className="font-semibold">{t("contact_us.I1")}</label>
-                    <input type="text" name="user_name" id="user_name" value={user_name}
-                      onChange={(e) => setUser_name(e.target.value)} className="h-10 border mt-1 rounded px-3 w-full border-gray-300 bg-white focus:outline-none focus:border-green-500 focus:bg-white" placeholder={`${t("contact_us.I1")}`} />
+                    <label htmlFor="userName" className="font-semibold">{t("contact_us.I1")}</label>
+                    <input type="text" name="userName" id="userName" value={userName}
+                      onChange={(e) => setUserName(e.target.value)} className="h-10 border mt-1 rounded px-3 w-full border-gray-300 bg-white focus:outline-none focus:border-green-500 focus:bg-white" placeholder={`${t("contact_us.I1")}`} />
                   </div>
                   <div className="">
-                    <label htmlFor="user_email" className="font-semibold">{t("contact_us.I2")}</label>
-                    <input type="text" name="user_email" id="user_email" value={user_email}
-                      onChange={(e) => setUser_email(e.target.value)} className="h-10 border mt-1 rounded px-3 w-full border-gray-300 bg-white focus:outline-none focus:border-green-500 focus:bg-white" placeholder={`${t("contact_us.I2")}`} />
+                    <label htmlFor="userEmail" className="font-semibold">{t("contact_us.I2")}</label>
+                    <input type="text" name="userEmail" id="userEmail" value={userEmail}
+                      onChange={(e) => setUserEmail(e.target.value)} className="h-10 border mt-1 rounded px-3 w-full border-gray-300 bg-white focus:outline-none focus:border-green-500 focus:bg-white" placeholder={`${t("contact_us.I2")}`} />
                   </div>
                   <div className="">
                     <label htmlFor="message" className="font-semibold">{t("contact_us.I3")}</label>
