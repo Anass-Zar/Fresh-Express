@@ -139,7 +139,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="bg-green-500 my-5">
+        <div className="bg-green-500 mt-5">
           <div className="container pr-24 pl-24">
             <div className="flex flex-col lg:flex-row items-center">
               <div className="lg:w-1/2">

@@ -2,64 +2,68 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Fresh_Express from "../images/express.png";
 import { useSelector } from "react-redux";
-import i18n from "i18next";
-import { initReactI18next } from "react-i18next";
-import LanguageDetector from "i18next-browser-languagedetector";
-import HttpApi from "i18next-http-backend";
-import cookies from "js-cookie";
-import { useTranslation } from "react-i18next";
+// import i18n from "i18next";
+// import { initReactI18next } from "react-i18next";
+// import LanguageDetector from "i18next-browser-languagedetector";
+// import HttpApi from "i18next-http-backend";
+// import cookies from "js-cookie";
+// import { useTranslation } from "react-i18next";
 
-i18n
-  .use(initReactI18next)
-  .use(LanguageDetector)
-  .use(HttpApi)
-  .init({
-    fallbackLng: "English",
-    detection: {
-      order: [
-        "cookie",
-        "htmlTag",
-        "localStorage",
-        "sessionStorage",
-        "navigator",
-        "path",
-        "subdomain",
-      ],
-      caches: ["cookie"],
-    },
-    backend: {
-      loadPath: "../../public/locale/{{lng}}/translation.json",
-    },
-  });
+// i18n
+//   .use(initReactI18next)
+//   .use(LanguageDetector)
+//   .use(HttpApi)
+//   .init({
+//     fallbackLng: "English",
+//     detection: {
+//       order: [
+//         "cookie",
+//         "htmlTag",
+//         "localStorage",
+//         "sessionStorage",
+//         "navigator",
+//         "path",
+//         "subdomain",
+//       ],
+//       caches: ["cookie"],
+//     },
+//     backend: {
+//       loadPath: "../../public/locale/{{lng}}/translation.json",
+//     },
+//   });
 
 const Nav = () => {
     const { list } = useSelector(state => state.cart);
-    const { t } = useTranslation();
-    const [selectedLanguage, setSelectedLanguage] = useState('English'); 
+  //   const { t } = useTranslation();
+  //   const [selectedLanguage, setSelectedLanguage] = useState('English'); 
 
-    useEffect(() => {
-      const savedLanguage = cookies.get("i18next") || "English";
-      setSelectedLanguage(savedLanguage);
-      i18n.changeLanguage(savedLanguage);
-    }, []);
+  //   useEffect(() => {
+  //     const savedLanguage = cookies.get("i18next") || "English";
+  //     setSelectedLanguage(savedLanguage);
+  //     i18n.changeLanguage(savedLanguage);
+  //   }, []);
 
-    const changeLanguageWithTransition = (language) => {
-      setSelectedLanguage(language); 
-      i18n.changeLanguage(language); 
-      cookies.set("i18next", language);
-    };
+  //   const changeLanguageWithTransition = (language) => {
+  //     setSelectedLanguage(language); 
+  //     i18n.changeLanguage(language); 
+  //     cookies.set("i18next", language);
+  //   };
 
-    useEffect(() => {
-      document.body.dir = selectedLanguage === 'Arabic' ? 'rtl' : 'ltr';
-  }, [selectedLanguage]);
+  //   useEffect(() => {
+  //     document.body.dir = selectedLanguage === 'Arabic' ? 'rtl' : 'ltr';
+  // }, [selectedLanguage]);
 
-    console.log(`Selected language is ${selectedLanguage}`);
+  //   console.log(`Selected language is ${selectedLanguage}`);
 
     let Links =[
-      {name: t("navbar.Link1"), link: "/"},
-      {name: t("navbar.Link2"), link: "/products"},
-      {name: t("navbar.Link3"), link: "/about_us"},
-      {name: t("navbar.Link4"), link: "/contact_us"},
+      {name: "HOME", link: "/"},
+      {name: "PRODUCTS", link: "/products"},
+      {name: "ABOUT US", link: "/about_us"},
+      {name: "CONTACT US", link: "/contact_us"},
+      // {name: t("navbar.Link1"), link: "/"},
+      // {name: t("navbar.Link2"), link: "/products"},
+      // {name: t("navbar.Link3"), link: "/about_us"},
+      // {name: t("navbar.Link4"), link: "/contact_us"},
     ];
     let [open,setOpen]=useState(false);
 
@@ -79,16 +83,23 @@ const Nav = () => {
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className='w-4 h-4'>
                   <path d="M256 0c17.7 0 32 14.3 32 32V66.7C368.4 80.1 431.9 143.6 445.3 224H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H445.3C431.9 368.4 368.4 431.9 288 445.3V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V445.3C143.6 431.9 80.1 368.4 66.7 288H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H66.7C80.1 143.6 143.6 80.1 224 66.7V32c0-17.7 14.3-32 32-32zM128 256a128 128 0 1 0 256 0 128 128 0 1 0 -256 0zm128-80a80 80 0 1 1 0 160 80 80 0 1 1 0-160z" fill='#FFFFFF'/>
                 </svg>
-                {t("navbar.Address")}
+                Hay Mohammady, Agadir
+                {/* {t("navbar.Address")} */}
               </p>
             </div>
             <div className='flex gap-2'>
-              <button onClick={() => { changeLanguageWithTransition("English") }}>English</button>
+              <button>English</button>
+              |
+              <button>Francais</button>
+              |
+              <button>العربية</button>
+              |
+              {/* <button onClick={() => { changeLanguageWithTransition("English") }}>English</button>
               |
               <button onClick={() => { changeLanguageWithTransition("Francais") }}>Francais</button>
               |
               <button onClick={() => { changeLanguageWithTransition("Arabic") }}>العربية</button>
-              |
+              | */}
               <p className='flex items-center gap-2'>
                 <a href="#">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" className='w-4 h-4'>

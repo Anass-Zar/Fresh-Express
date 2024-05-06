@@ -4,11 +4,11 @@ import ReactPaginate from "react-paginate";
 import Footer from "../components/footer";
 import Navbar from "../components/navbar";
 import vfImage from "../images/vf.jpg";
-import { useTranslation } from "react-i18next";
+// import { useTranslation } from "react-i18next";
 // import Error404 from "../components/error404";
 
 const Product = () => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
   const [data, setData] = useState({
@@ -90,14 +90,16 @@ const Product = () => {
 
       <div className="w-full h-40 md:h-52 text-center grid items-center content-center font-[Dosis] uppercase" style={{ backgroundImage: `url(${vfImage})`, backgroundSize: "cover", backgroundPosition: "center", }} >
         <div className="w-full h-40 md:h-52 py-16 text-center grid items-center content-center bg-[#16A34Add]">
-          <h1 className="text-3xl md:text-5xl font-bold text-gray-50 text-center">{t("products.Title")}</h1>
+          <h1 className="text-3xl md:text-5xl font-bold text-gray-50 text-center">PRODUCTS</h1>
+          {/* <h1 className="text-3xl md:text-5xl font-bold text-gray-50 text-center">{t("products.Title")}</h1> */}
           <h1 className="md:text-lg font-semibold text-gray-50 mt-3 flex justify-center gap-2">
             <Link to="/" className="hover:underline">
               Fresh Express
             </Link>
             &gt;
             <Link to="/products" className="hover:underline">
-              {t("products.Link")}
+              Products
+              {/* {t("products.Link")} */}
             </Link>
           </h1>
         </div>
@@ -134,8 +136,10 @@ const Product = () => {
               marginPagesDisplayed={2}
               onPageChange={handlePageClick}
               containerClassName={"flex justify-center mt-10"}
-              previousLabel={`${t("products.P")}`}
-              nextLabel={`${t("products.N")}`}
+              previousLabel={'Next'}
+              nextLabel={'Previous'}
+              // previousLabel={`${t("products.P")}`}
+              // nextLabel={`${t("products.N")}`}
               previousClassName={`${Math.ceil(products.length / productsPerPage) > 1 ? "border border-gray-400 px-3 py-1 rounded-lg mr-2" : 'hidden'}`}
               nextClassName={`${Math.ceil(products.length / productsPerPage) > 1 ? "border border-gray-400 px-3 py-1 rounded-lg ml-2" : 'hidden'}`}
               activeClassName={"text-green-500"}
@@ -151,7 +155,8 @@ const Product = () => {
         <form onSubmit={handleSubmit} className="w-full md:w-[40%] lg:w-1/3 xl:w-[25%] mb-4">
           <div className="pb-8">
             <h1 className="font-[Dosis] uppercase text-xl font-semibold text-green-500 pb-2">
-              {t("products.T1")}
+              SEARCH PRODUCTS
+              {/* {t("products.T1")} */}
             </h1>
             <div className="flex items-center max-w-sm">
               <div className="relative w-full">
@@ -176,7 +181,8 @@ const Product = () => {
                   type="text"
                   id="search"
                   className="bg-white border border-gray-400 text-gray-700 rounded-3xl focus:ring-green-500 focus:border-green-500 block w-full ps-10 p-2"
-                  placeholder={`${t("products.I")}`}
+                  placeholder='Search...'
+                  // placeholder={`${t("products.I")}`}
                   value={data.search}
                   onChange={handleChange}
                 />
@@ -185,7 +191,8 @@ const Product = () => {
           </div>
           <div className="">
             <h1 className="font-[Dosis] uppercase text-xl font-semibold text-green-500 pb-2.5">
-              {t("products.T2")}
+              ALL CATEGORIES
+              {/* {t("products.T2")} */}
             </h1>
             <div className="grid gap-2.5">
               <div className="flex items-center gap-2">

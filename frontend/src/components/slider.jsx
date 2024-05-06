@@ -5,13 +5,13 @@ import slide2 from '../images/slider2.jpg';
 import slide3 from '../images/slider3.jpg';
 import slide4 from '../images/slider4.jpg';
 import slide5 from '../images/slider5.jpg';
-import { useTranslation } from "react-i18next";
+// import { useTranslation } from "react-i18next";
 
 const Slider = () => {
 
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
 
   const nextSlide = () => {
     setCurrentSlide((prevSlide) => (prevSlide + 1) % 5);
@@ -24,11 +24,16 @@ const Slider = () => {
   const slides = [slide1, slide2, slide3, slide4, slide5];
 
   const sentences = [
-    t("slider.S1"),
-    t("slider.S2"),
-    t("slider.S3"),
-    t("slider.S4"),
-    t("slider.S5")
+    "Global goodness, delivered fresh.",
+    "Discover the world's flavors, one bite at a time.",
+    "From farm to fork, excellence knows no borders.",
+    "Fresh picks from around the world, just for you.",
+    "Taste the world with our international produce.",
+    // t("slider.S1"),
+    // t("slider.S2"),
+    // t("slider.S3"),
+    // t("slider.S4"),
+    // t("slider.S5")
   ];
 
   useEffect(() => {
@@ -54,7 +59,10 @@ const Slider = () => {
             <div className="absolute inset-0 flex justify-center items-center bg-black/20">
               <div className="grid justify-items-center gap-10">
                 <h1 className='text-2xl md:text-3xl lg:text-5xl font-bold text-white text-center py-2 font-[Dosis] uppercase'>{sentences[index]}</h1>
-                <Link to="/about_us" className="mb-8 text-md md:text-lg lg:text-xl font-semibold text-white py-2 px-4 bg-green-500 hover:bg-green-400 rounded-3xl">{t("slider.B")}</Link>
+                <Link to="/about_us" className="mb-8 text-md md:text-lg lg:text-xl font-semibold text-white py-2 px-4 bg-green-500 hover:bg-green-400 rounded-3xl">
+                  {/* {t("slider.B")} */}
+                  Read More
+                </Link>
               </div>
             </div>
           </div>
