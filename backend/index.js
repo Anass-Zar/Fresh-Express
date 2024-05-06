@@ -38,17 +38,6 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'frontend', 'dist', 'index.html'))
 })
 
-//////////////////////////////////
-app.use((err, req, res, next) => {
-  const statusCode = err.statusCode || 500;
-  const message = err.message || "Server Error";
-  return res.status(statusCode).json({
-    success:false,
-    statusCode,
-    message
-  })
-})
-
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

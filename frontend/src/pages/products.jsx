@@ -43,7 +43,7 @@ const Product = () => {
       try {
         const searchQuery = urlParams.toString();
         const response = await fetch(
-          `http://localhost:3000/api/products/search_products?${searchQuery}`
+          `/api/products/search_products?${searchQuery}`
         );
         const data = await response.json();
         setProducts(data);

@@ -16,7 +16,7 @@ const Update_Product = () => {
     const fetchListing = async () => {
       if (!param.product) return;
       const product = param.product;
-      const res = await fetch(`http://localhost:3000/api/products/details_product/${product}`);
+      const res = await fetch(`/api/products/details_product/${product}`);
       const data = await res.json();
       if (data.success === false) {
         console.log(data.message);
@@ -73,7 +73,7 @@ const Update_Product = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await fetch(`http://localhost:3000/api/products/update_product/${formData._id}`, {
+      const res = await fetch(`/api/products/update_product/${formData._id}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

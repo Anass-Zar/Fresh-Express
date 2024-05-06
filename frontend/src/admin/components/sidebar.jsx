@@ -13,7 +13,7 @@ const Sidebar = () => {
     e.preventDefault();
     try {
       dispatch(logoutStart());
-      const res = await fetch('http://localhost:3000/api/admin/logout');
+      const res = await fetch('/api/admin/logout');
       const data = await res.json();
       if (data.success === false) {
         dispatch(logoutFailure(data.message))

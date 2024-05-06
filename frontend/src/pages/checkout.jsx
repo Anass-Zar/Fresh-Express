@@ -36,7 +36,7 @@ const Checkout = () => {
         ...formData,
         order: cart.list.map(item => ({ image: item.image, title: item.title, quantity: item.quantity })),
       };
-      const response = await fetch("http://localhost:3000/api/requests/add_requests", {
+      const response = await fetch("/api/requests/add_requests", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

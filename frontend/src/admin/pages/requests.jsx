@@ -9,7 +9,7 @@ const Requests = () => {
   useEffect(() => {
     const fetchRequests = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api/requests/requests');
+        const response = await fetch('/api/requests/requests');
         const data = await response.json();
         setRequests(data);
       } catch (error) {

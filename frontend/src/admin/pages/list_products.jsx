@@ -10,7 +10,7 @@ const List_Product = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api/products/list_products');
+        const response = await fetch('/api/products/list_products');
         const data = await response.json();
         setProducts(data);
       } catch (error) {
@@ -23,7 +23,7 @@ const List_Product = () => {
 
   const handleDeleteProduct = async (id) => {
     try {
-      const response = await fetch(`http://localhost:3000/api/products/delete_product/${id}`, {
+      const response = await fetch(`/api/products/delete_product/${id}`, {
         method: 'DELETE'
       });
       const result = await response.json();

@@ -15,7 +15,7 @@ const Request = () => {
     const fetchListing = async () => {
       if (!request) return;
       try {
-        const res = await fetch(`http://localhost:3000/api/requests/request/${request}`);
+        const res = await fetch(`/api/requests/request/${request}`);
         const data = await res.json();
         if (data.success === false) {
           console.log(data.message);
@@ -39,7 +39,7 @@ const Request = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`http://localhost:3000/api/requests/requests/${request}`, {
+      const res = await fetch(`/api/requests/requests/${request}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

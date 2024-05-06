@@ -24,7 +24,7 @@ const Product_Details = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api/products/list_products');
+        const response = await fetch('/api/products/list_products');
         const data = await response.json();
         setProducts(data);
       } catch (error) {
@@ -39,7 +39,7 @@ const Product_Details = () => {
     const fetchListing = async () => {
       if (!param.product) return;
       const product = param.product;
-      const res = await fetch(`http://localhost:3000/api/products/details_product/${product}`);
+      const res = await fetch(`/api/products/details_product/${product}`);
       const data = await res.json();
       if (data.success === false) {
         console.log(data.message);
