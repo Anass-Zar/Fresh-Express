@@ -18,15 +18,15 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
 
+mongoose
+.connect(process.env.MONGO)
+.then(() => console.log("MongoDB connection is successful"))
+.catch((err) =>
+  console.log("There is a problem in MongoDB connection =>", err)
+);
+
 ///////////////////////////////
 const __dirname = path.resolve();
-
-mongoose
-  .connect(process.env.MONGO)
-  .then(() => console.log("MongoDB connection is successful"))
-  .catch((err) =>
-    console.log("There is a problem in MongoDB connection =>", err)
-  );
 
 app.use("/api/admin", adminRouter);
 app.use("/api/products", productsRouter);
@@ -36,6 +36,17 @@ app.use("/api/requests", requestsRouter);
 app.use(express.static(path.join(__dirname, '/frontend/dist')))
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'frontend', 'dist', 'index.html'))
+})
+
+//////////////////////////////////
+app.use((err, req, res, next) => {
+  const statusCode = err.statusCode || 500;
+  const message = err.message || "Server Error";
+  return res.status(statusCode).json({
+    success:false,
+    statusCode,
+    message
+  })
 })
 
 app.listen(PORT, () => {
