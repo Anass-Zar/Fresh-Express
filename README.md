@@ -1,6 +1,6 @@
 
 <div align="center">
-  <img src="./images/gethouse.png" alt="Get House" width="540" height="300"/>
+  <img src="./screenshots/.png" alt="Fresh Express" width="540" height="300"/>
 </div>
 
 # Fresh Express | Store - Platform
@@ -15,7 +15,7 @@ At Fresh Express, we take pride in our meticulous selection process, rigorous qu
 
 Thank you for choosing Fresh Express. We are honored to be a part of your daily routine and look forward to delivering the goodness of nature's bounty to you for years to come.
 
-## Click [here](https://get-house.onrender.com/) to view the live application.
+## Click [here](https://fresh-express.onrender.com/) to view the live application.
 
 ## Table of Contents
 
@@ -78,47 +78,62 @@ Thank you for choosing Fresh Express. We are honored to be a part of your daily 
 
   ### Home Page:
 
-  ![screenshot](./images/home.png)
+  ![screenshot](./screenshots/fresh01.png)
 
 
-  ### Sign Up Page:
+  ### Products Page:
 
-  ![screenshot](./images/sign-up.png)
-
-
-  ### Log In Page:
-
-  ![screenshot](./images/login.png)
+  ![screenshot](./screenshots/fresh02.png)
 
 
-  ### Search Page:
+  ### Product Detail Page:
 
-  ![screenshot](./images/search.png)
-
-
-  ### Listing Details Page:
-
-  ![screenshot](./images/listing-details.png)
+  ![screenshot](./screenshots/fresh03.png)
 
 
-  ### Profile Page:
+  ### About Us Page:
 
-  ![screenshot](./images/profile.png)
-
-
-  ### Listing Page:
-
-  ![screenshot](./images/listing.png)
+  ![screenshot](./screenshots/fresh04.png)
 
 
-  ### Add Listing Page:
+  ### Contact Us Page:
 
-  ![screenshot](./images/add-listing.png)
+  ![screenshot](./screenshots/fresh05.png)
 
 
-  ### Update Listing Page:
+  ### Cart Page:
 
-  ![screenshot](./images/update-listing.png)
+  ![screenshot](./screenshots/fresh06.png)
+
+
+  ### Login Page:
+
+  ![screenshot](./screenshots/fresh07.png)
+
+
+  ### Commandes Page:
+
+  ![screenshot](./screenshots/fresh08.png)
+
+
+  ### Commande Detail Page:
+
+  ![screenshot](./screenshots/fresh09.png)
+
+
+  ### Products Liste Page:
+
+  ![screenshot](./screenshots/fresh10.png)
+  
+
+  ### Add Product Page:
+
+  ![screenshot](./screenshots/fresh11.png)
+  
+
+  ### Update Product Page:
+
+  ![screenshot](./screenshots/fresh12.png)
 
 
 ## Installation And Start The Front End
@@ -147,7 +162,7 @@ npm start
 ## Deployment
 
 Application deployed on Render  
-[Live Demo](https://get-house.onrender.com/)
+[Live Demo](https://fresh-express.onrender.com/)
 
 
 ## Questions
