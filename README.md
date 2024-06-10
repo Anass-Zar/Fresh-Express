@@ -1,6 +1,6 @@
 
 <div align="center">
-  <img src="./screenshots/Fresh-Express.png" alt="Fresh Express" width="540" height="300"/>
+  <img src="./screenshots/Fresh-Express.png" alt="Fresh Express" width="550" height="125"/>
 </div>
 
 
