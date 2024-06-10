@@ -1,7 +1,8 @@
 
 <div align="center">
-  <img src="./images/gethouse.png" alt="Get House" width="540" height="300"/>
+  <img src="./screenshots/Fresh-Express.png" alt="Fresh Express" width="540" height="300"/>
 </div>
+
 
 # Fresh Express | Store - Platform
 
@@ -15,7 +16,7 @@ At Fresh Express, we take pride in our meticulous selection process, rigorous qu
 
 Thank you for choosing Fresh Express. We are honored to be a part of your daily routine and look forward to delivering the goodness of nature's bounty to you for years to come.
 
-## Click [here](https://get-house.onrender.com/) to view the live application.
+## Click [here](https://fresh-express.onrender.com/) to view the live application.
 
 ## Table of Contents
 
@@ -25,15 +26,18 @@ Thank you for choosing Fresh Express. We are honored to be a part of your daily 
   - [Table of Contents](#table-of-contents)
   - [Tools \& Resources](#tools--resources)
   - [Screenshots](#screenshots)
-  - [Home Page:](#main-page)
-  - [Sign Up Page](#sign-up-page)
-  - [Log In Page:](#log-in-page)
-  - [Search Page:](#search-page)
-  - [Listing Details Page:](#listing-details-page)
-  - [Profile Page:](#profile-page)
-  - [Listing Page:](#listing-page)
-  - [Add Listing Page:](#add-listing-page)
-  - [Update Listing Page:](#update-listing-page)
+  - [Home Page:](#Home-Page)
+  - [Products Page:](#Products-Page)
+  - [Product Detail Page:](#Product-Detail-Page)
+  - [About Us Page:](#About-Us-Page)
+  - [Contact Us Page:](#Contact-Us-Page)
+  - [Cart Page:](#Cart-Page)
+  - [Login Page:](#Login-Page)
+  - [Commandes Page:](#Commandes-Page)
+  - [Commande Detail Page:](#Commande-Detail-Page)
+  - [Products Liste Page:](#Products-Liste-Page)
+  - [Add Product Page:](#Add-Product-Page)
+  - [Update Product Page:](#Update-Product-Page)
   - [Installation](#instalation)
   - [Installation And Start The Front End](#installation-and-start-the-front-end)
   - [Installation And Start The Back End](#installation-and-start-the-back-end)
@@ -78,47 +82,62 @@ Thank you for choosing Fresh Express. We are honored to be a part of your daily 
 
   ### Home Page:
 
-  ![screenshot](./images/home.png)
+  ![screenshot](./screenshots/fresh01.png)
 
 
-  ### Sign Up Page:
+  ### Products Page:
 
-  ![screenshot](./images/sign-up.png)
-
-
-  ### Log In Page:
-
-  ![screenshot](./images/login.png)
+  ![screenshot](./screenshots/fresh02.png)
 
 
-  ### Search Page:
+  ### Product Detail Page:
 
-  ![screenshot](./images/search.png)
-
-
-  ### Listing Details Page:
-
-  ![screenshot](./images/listing-details.png)
+  ![screenshot](./screenshots/fresh03.png)
 
 
-  ### Profile Page:
+  ### About Us Page:
 
-  ![screenshot](./images/profile.png)
-
-
-  ### Listing Page:
-
-  ![screenshot](./images/listing.png)
+  ![screenshot](./screenshots/fresh04.png)
 
 
-  ### Add Listing Page:
+  ### Contact Us Page:
 
-  ![screenshot](./images/add-listing.png)
+  ![screenshot](./screenshots/fresh05.png)
 
 
-  ### Update Listing Page:
+  ### Cart Page:
 
-  ![screenshot](./images/update-listing.png)
+  ![screenshot](./screenshots/fresh06.png)
+
+
+  ### Login Page:
+
+  ![screenshot](./screenshots/fresh07.png)
+
+
+  ### Commandes Page:
+
+  ![screenshot](./screenshots/fresh08.png)
+
+
+  ### Commande Detail Page:
+
+  ![screenshot](./screenshots/fresh09.png)
+
+
+  ### Products Liste Page:
+
+  ![screenshot](./screenshots/fresh10.png)
+  
+
+  ### Add Product Page:
+
+  ![screenshot](./screenshots/fresh11.png)
+  
+
+  ### Update Product Page:
+
+  ![screenshot](./screenshots/fresh12.png)
 
 
 ## Installation And Start The Front End
@@ -147,7 +166,7 @@ npm start
 ## Deployment
 
 Application deployed on Render  
-[Live Demo](https://get-house.onrender.com/)
+[Live Demo](https://fresh-express.onrender.com/)
 
 
 ## Questions
