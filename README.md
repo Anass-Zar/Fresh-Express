@@ -1,7 +1,8 @@
 
 <div align="center">
-  <img src="./screenshots/.png" alt="Fresh Express" width="540" height="300"/>
+  <img src="./screenshots/Fresh-Express.png" alt="Fresh Express" width="540" height="300"/>
 </div>
+
 
 # Fresh Express | Store - Platform
 
@@ -25,15 +26,18 @@ Thank you for choosing Fresh Express. We are honored to be a part of your daily 
   - [Table of Contents](#table-of-contents)
   - [Tools \& Resources](#tools--resources)
   - [Screenshots](#screenshots)
-  - [Home Page:](#main-page)
-  - [Sign Up Page](#sign-up-page)
-  - [Log In Page:](#log-in-page)
-  - [Search Page:](#search-page)
-  - [Listing Details Page:](#listing-details-page)
-  - [Profile Page:](#profile-page)
-  - [Listing Page:](#listing-page)
-  - [Add Listing Page:](#add-listing-page)
-  - [Update Listing Page:](#update-listing-page)
+  - [Home Page:](#Home-Page)
+  - [Products Page:](#Products-Page)
+  - [Product Detail Page:](#Product-Detail-Page)
+  - [About Us Page:](#About-Us-Page)
+  - [Contact Us Page:](#Contact-Us-Page)
+  - [Cart Page:](#Cart-Page)
+  - [Login Page:](#Login-Page)
+  - [Commandes Page:](#Commandes-Page)
+  - [Commande Detail Page:](#Commande-Detail-Page)
+  - [Products Liste Page:](#Products-Liste-Page)
+  - [Add Product Page:](#Add-Product-Page)
+  - [Update Product Page:](#Update-Product-Page)
   - [Installation](#instalation)
   - [Installation And Start The Front End](#installation-and-start-the-front-end)
   - [Installation And Start The Back End](#installation-and-start-the-back-end)
